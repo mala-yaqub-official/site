@@ -16,7 +16,7 @@
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
         
-        .btn-quran { background: linear-gradient(135deg, #8e44ad, #c39bd3); order: 1; }
+        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; } /* ڕەنگێ زێڕی */
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
         
@@ -25,8 +25,8 @@
         .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: #f0f0f0; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; z-index: 10; }
         .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border-radius: 12px; z-index: 100; width: 180px; text-align: right; overflow: hidden; }
         .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 14px; font-weight: bold; color: #333; }
-        .qari-dropdown div:hover { background: #f8f8f8; color: #8e44ad; }
-        .qari-dropdown div.active { background: #8e44ad; color: white; }
+        .qari-dropdown div:hover { background: #f8f8f8; color: #d4af37; }
+        .qari-dropdown div.active { background: #d4af37; color: white; }
 
         .form-input { width: 100%; height: 120px; border-radius: 12px; border: 1px solid #ddd; padding: 12px; outline: none; font-family: inherit; resize: none; box-sizing: border-box; background: #fafafa; margin-top: 15px; font-size: 16px; text-align: right; }
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 18px; transition: 0.3s; }
@@ -34,9 +34,14 @@
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
         .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
         .search-field { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; }
-        .list-item { background: #fff; padding: 15px 18px; margin-bottom: 12px; border-radius: 12px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; }
         
-        .audio-container { margin-top: 10px; display: none; width: 100%; }
+        .list-item { background: #fff; padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; display: flex; align-items: center; justify-content: flex-start; gap: 15px; transition: 0.2s; }
+        .list-item:active { transform: scale(0.98); background: #f9f9f9; }
+        
+        .surah-num { background: linear-gradient(135deg, #d4af37, #b8860b); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; box-shadow: 0 3px 8px rgba(212, 175, 55, 0.4); }
+        .surah-name { font-family: 'Amiri', serif; font-size: 22px; font-weight: 700; color: #333; flex-grow: 1; }
+
+        .audio-container { width: 100%; margin-top: 10px; display: none; }
         .audio-player { width: 100%; height: 45px; pointer-events: auto !important; }
 
         .video-overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
@@ -44,7 +49,7 @@
         .video-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 15px; }
         .close-video { position: absolute; top: -55px; left: 0; background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
         
-        .footer-credit { margin-top: 30px; font-size: 15px; color: #777; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; width: 100%; }
+        .footer-credit { margin-top: 30px; font-size: 14px; color: #aaa; text-align: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; font-style: italic; }
         .stat-btn { margin-top: 15px; background: none; border: 1px solid #ccc; color: #888; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
     </style>
 </head>
@@ -87,15 +92,15 @@
         </div>
         
         <button class="stat-btn" onclick="showCounterPage()">📊 ئامارا سەرەدانان</button>
-        <div class="footer-credit">پڕۆگرامەر <b>بریندار شوکت</b></div>
+        <div class="footer-credit">صدقة جارية</div>
     </div>
 
     <div id="page-two" class="container">
         <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
             <div id="qari-btn-wrapper" class="qari-header-btn" onclick="toggleQariMenu()">
-                <span style="font-size: 12px; color: #8e44ad; font-weight: bold;">قورئانخوین</span>
-                <div style="font-size:18px; color:#8e44ad; font-weight:bold;">⋮</div>
+                <span style="font-size: 12px; color: #b8860b; font-weight: bold;">قورئانخوین</span>
+                <div style="font-size:18px; color:#b8860b; font-weight:bold;">⋮</div>
             </div>
 
             <h2 id="title-display" class="title-display"></h2>
@@ -106,7 +111,7 @@
                 <div onclick="selectQari('https://server8.mp3quran.net/lhdan/', this)">محمد اللحيدان</div>
             </div>
 
-            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ بابەتان بگەڕی...">
+            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ سوورەت یان بابەتان بگەڕی...">
             <div id="items-list"></div>
         </div>
     </div>
@@ -115,14 +120,6 @@
         <div class="video-box">
             <button class="close-video" onclick="closeVideo()">❌ داخستنا ڤیدیۆیێ</button>
             <iframe id="youtube-iframe" src="" allow="autoplay; encrypted-media; fullscreen"></iframe>
-        </div>
-    </div>
-
-    <div id="page-counter" class="container">
-        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
-        <div class="box">
-            <h2 style="color: #1e4d6b; margin-bottom: 20px;">📊 ئامارا سەرەدانکەران</h2>
-            <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=8l8n8u3m5z1w3y1x7u4q9r1b6k7m4v9s" border="0">
         </div>
     </div>
 
@@ -148,7 +145,7 @@
             document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
             window.scrollTo(0, 0);
             if(isQuran) renderQuran();
-            else renderList(dataBank[title] || []);
+            else renderList(dataBank[title] || [], title);
         }
 
         function toggleQariMenu() {
@@ -169,8 +166,11 @@
             listDiv.innerHTML = surahs.map((s, i) => {
                 const num = (i + 1).toString().padStart(3, '0');
                 return `<div class="list-item" onclick="togglePlay(${i}, '${num}', event)">
-                            <span style="font-weight:bold; display:block;">سورة ${s}</span>
-                            <div id="audio-c-${i}" class="audio-container" onclick="event.stopPropagation()"></div>
+                            <div class="surah-num">${i + 1}</div>
+                            <div style="flex-grow:1; text-align:right;">
+                                <span class="surah-name">سورة ${s}</span>
+                                <div id="audio-c-${i}" class="audio-container" onclick="event.stopPropagation()"></div>
+                            </div>
                         </div>`;
             }).join('');
         }
@@ -192,10 +192,16 @@
             }
         }
 
-        function renderList(items) {
+        function renderList(items, title) {
             let listDiv = document.getElementById('items-list');
             listDiv.innerHTML = items.length === 0 ? '<div style="color:#888; padding:20px;">ل نێزیک دێ هێنە زێدەکرن...</div>' : 
-                items.map(i => `<div class="list-item" onclick="playVideo('${i.id}')"><span style="font-weight:bold; display:block;">${i.name}</span><span style="font-size:12px; color:#10b981;">مەلا یەعقوب سندی</span></div>`).join('');
+                items.map((i, index) => `<div class="list-item" onclick="playVideo('${i.id}')">
+                            <div class="surah-num" style="background:#1e4d6b;">${index + 1}</div>
+                            <div style="flex-grow:1; text-align:right;">
+                                <span class="surah-name" style="font-size:18px;">${i.name}</span>
+                                <span style="font-size:12px; color:#10b981; display:block;">مەلا یەعقوب سندی</span>
+                            </div>
+                        </div>`).join('');
         }
 
         function playVideo(id) {
@@ -211,7 +217,6 @@
 
         function goBack() {
             document.getElementById('page-two').style.display = 'none';
-            document.getElementById('page-counter').style.display = 'none';
             document.getElementById('page-one').style.display = 'flex';
             window.scrollTo(0, lastScrollPos);
             document.querySelectorAll('audio').forEach(a => a.pause());
@@ -221,7 +226,7 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let items = document.getElementsByClassName('list-item');
             for (let i = 0; i < items.length; i++) {
-                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "" : "none";
+                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none";
             }
         }
 
