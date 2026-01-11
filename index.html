@@ -9,14 +9,15 @@
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
         .profile-card { background: white; padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed; position: relative; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
+        .profile-img:active { transform: scale(0.96); }
         .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; position: relative; }
         .section-title { color: #2d5a27; font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 10px; display: block; border-bottom: 2px solid #f0f4f8; padding-bottom: 5px; }
         .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 20px; text-align: justify; display: block; }
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
         
-        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; } /* ڕەنگێ زێڕی */
+        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; }
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
         
@@ -50,14 +51,15 @@
         .close-video { position: absolute; top: -55px; left: 0; background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
         
         .footer-credit { margin-top: 30px; font-size: 14px; color: #aaa; text-align: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; font-style: italic; }
-        .stat-btn { margin-top: 15px; background: none; border: 1px solid #ccc; color: #888; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
     </style>
 </head>
 <body>
 
+    <img src="https://profile-counter.glitch.me/Yaqoub_Sindi_Secret_Counter/count.svg" style="display:none !important;">
+
     <div id="page-one" class="container">
         <div class="profile-card">
-            <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" alt="مەلا یەعقوب سندی" class="profile-img">
+            <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" onclick="showCounterPage()" alt="مەلا یەعقوب سندی" class="profile-img">
             <h1 style="margin: 0; color: #2d5a27; font-size: 32px; font-family: 'Amiri', serif;">مەلا یەعقوب سندی</h1>
             <span style="color: #1e4d6b; font-weight: bold;">خودێ ب پارێزیت</span>
         </div>
@@ -91,12 +93,23 @@
             </form>
         </div>
         
-        <button class="stat-btn" onclick="showCounterPage()">📊 ئامارا سەرەدانان</button>
         <div class="footer-credit">صدقة جارية</div>
     </div>
 
+    <div id="page-counter" class="container">
+        <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
+        <div class="box">
+            <span class="section-title">📊 ئامارا گشتی</span>
+            <p style="color:#666; font-size:18px;">کۆما گشتیا سەرەدانکەران هەتا نوکە:</p>
+            <div style="margin: 20px 0;">
+                <img src="https://profile-counter.glitch.me/Yaqoub_Sindi_Secret_Counter/count.svg" alt="Count">
+            </div>
+            <p style="color:#aaa; font-size:14px;">تێبینی: ئەڤ لاپەڕە تەنێ بۆ تە دیارە.</p>
+        </div>
+    </div>
+
     <div id="page-two" class="container">
-        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
+        <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
             <div id="qari-btn-wrapper" class="qari-header-btn" onclick="toggleQariMenu()">
                 <span style="font-size: 12px; color: #b8860b; font-weight: bold;">قورئانخوین</span>
@@ -118,7 +131,7 @@
 
     <div id="video-overlay" class="video-overlay-bg">
         <div class="video-box">
-            <button class="close-video" onclick="closeVideo()">❌ داخستنا ڤیدیۆیێ</button>
+            <button class="close-video" onclick="closeVideo()">❌ داخستن</button>
             <iframe id="youtube-iframe" src="" allow="autoplay; encrypted-media; fullscreen"></iframe>
         </div>
     </div>
@@ -145,7 +158,7 @@
             document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
             window.scrollTo(0, 0);
             if(isQuran) renderQuran();
-            else renderList(dataBank[title] || [], title);
+            else renderList(dataBank[title] || []);
         }
 
         function toggleQariMenu() {
@@ -178,25 +191,21 @@
         function togglePlay(index, num, event) {
             if (event.target.tagName === 'AUDIO' || event.target.className === 'audio-player') return;
             const container = document.getElementById(`audio-c-${index}`);
-            const existingAudio = container.querySelector('audio');
-            if (existingAudio) {
-                if (existingAudio.paused) existingAudio.play();
-                else existingAudio.pause();
+            if (container.style.display === 'block') {
+                container.style.display = 'none';
+                container.innerHTML = '';
             } else {
-                document.querySelectorAll('.audio-container').forEach(c => {
-                    c.style.display = 'none';
-                    c.innerHTML = '';
-                });
+                document.querySelectorAll('.audio-container').forEach(c => {c.style.display = 'none'; c.innerHTML = '';});
                 container.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${num}.mp3" type="audio/mpeg"></audio>`;
                 container.style.display = 'block';
             }
         }
 
-        function renderList(items, title) {
+        function renderList(items) {
             let listDiv = document.getElementById('items-list');
             listDiv.innerHTML = items.length === 0 ? '<div style="color:#888; padding:20px;">ل نێزیک دێ هێنە زێدەکرن...</div>' : 
-                items.map((i, index) => `<div class="list-item" onclick="playVideo('${i.id}')">
-                            <div class="surah-num" style="background:#1e4d6b;">${index + 1}</div>
+                items.map((i, idx) => `<div class="list-item" onclick="playVideo('${i.id}')">
+                            <div class="surah-num" style="background:#1e4d6b;">${idx + 1}</div>
                             <div style="flex-grow:1; text-align:right;">
                                 <span class="surah-name" style="font-size:18px;">${i.name}</span>
                                 <span style="font-size:12px; color:#10b981; display:block;">مەلا یەعقوب سندی</span>
@@ -205,8 +214,7 @@
         }
 
         function playVideo(id) {
-            const iframe = document.getElementById('youtube-iframe');
-            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+            document.getElementById('youtube-iframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
             document.getElementById('video-overlay').style.display = 'flex';
         }
 
@@ -215,8 +223,16 @@
             document.getElementById('video-overlay').style.display = 'none';
         }
 
+        function showCounterPage() {
+            lastScrollPos = window.scrollY;
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-counter').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
         function goBack() {
             document.getElementById('page-two').style.display = 'none';
+            document.getElementById('page-counter').style.display = 'none';
             document.getElementById('page-one').style.display = 'flex';
             window.scrollTo(0, lastScrollPos);
             document.querySelectorAll('audio').forEach(a => a.pause());
@@ -228,12 +244,6 @@
             for (let i = 0; i < items.length; i++) {
                 items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none";
             }
-        }
-
-        function showCounterPage() {
-            lastScrollPos = window.scrollY;
-            document.getElementById('page-one').style.display = 'none';
-            document.getElementById('page-counter').style.display = 'block';
         }
     </script>
 </body>
