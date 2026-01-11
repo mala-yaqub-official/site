@@ -8,29 +8,43 @@
     <style>
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
-        .profile-card { background: white; padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed; }
+        .profile-card { background: white; padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed; position: relative; }
         .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; }
-        .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; }
+        .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; position: relative; }
         .section-title { color: #2d5a27; font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 10px; display: block; border-bottom: 2px solid #f0f4f8; padding-bottom: 5px; }
         .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 20px; text-align: justify; display: block; }
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); }
-        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); }
+        
+        .btn-quran { background: linear-gradient(135deg, #8e44ad, #c39bd3); order: 1; }
+        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
+        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
+        
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        
+        .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: #f0f0f0; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; z-index: 10; }
+        .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border-radius: 12px; z-index: 100; width: 180px; text-align: right; overflow: hidden; }
+        .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 14px; font-weight: bold; color: #333; }
+        .qari-dropdown div:hover { background: #f8f8f8; color: #8e44ad; }
+        .qari-dropdown div.active { background: #8e44ad; color: white; }
+
         .form-input { width: 100%; height: 120px; border-radius: 12px; border: 1px solid #ddd; padding: 12px; outline: none; font-family: inherit; resize: none; box-sizing: border-box; background: #fafafa; margin-top: 15px; font-size: 16px; text-align: right; }
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 18px; transition: 0.3s; }
-        .submit-btn:hover { background: #1e4d1a; }
+        
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
         .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
         .search-field { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; }
-        .list-item { background: #fff; padding: 15px 18px; margin-bottom: 12px; border-radius: 12px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; }
+        .list-item { background: #fff; padding: 15px 18px; margin-bottom: 12px; border-radius: 12px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; }
+        
+        .audio-container { margin-top: 10px; display: none; width: 100%; }
+        .audio-player { width: 100%; height: 45px; pointer-events: auto !important; }
+
         .video-overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
         .video-box { width: 95%; max-width: 850px; position: relative; }
         .video-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 15px; }
         .close-video { position: absolute; top: -55px; left: 0; background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        
         .footer-credit { margin-top: 30px; font-size: 15px; color: #777; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; width: 100%; }
-        .footer-credit b { color: #1e4d6b; }
         .stat-btn { margin-top: 15px; background: none; border: 1px solid #ccc; color: #888; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
     </style>
 </head>
@@ -46,7 +60,7 @@
         <div class="box">
             <span class="section-title">پێشەکی</span>
             <span class="content-text">
-                حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی. خودێ ئەڤی کاری بۆ خۆ حیساب بکەت و بکەت د میزانیا خیرێن مە دا.
+                حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی.
             </span>
         </div>
 
@@ -58,6 +72,7 @@
         </div>
 
         <div class="box btn-box">
+            <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', false, true)">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', true)">📚 وانەیێن زانستێن شەرعی</button>
             <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', false)">🎤 گۆتارێن ئەینیێ</button>
         </div>
@@ -65,26 +80,33 @@
         <div class="box">
             <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
             <div style="font-family: 'Amiri', serif; color: #666; font-size: 18px; margin-bottom: 10px;">بۆ هەر پێشنیارەکێ یان دروستبینا ئاریشەکێ د مالپەڕی دا مە ئاگەهدار بکە</div>
-            
             <form action="https://formspree.io/f/xbddrvgr" method="POST">
                 <textarea name="pishniyar" class="form-input" placeholder="پشنيار و ئاريشا ته ئوتوماتيكى دى كهت ده ستى مه" required></textarea>
-                <input type="hidden" name="_subject" value="پێشنیارەکا نوو ژ مالپەڕێ مەلای">
                 <button type="submit" class="submit-btn">فرێکرنا پێشنیارێ</button>
             </form>
         </div>
         
         <button class="stat-btn" onclick="showCounterPage()">📊 ئامارا سەرەدانان</button>
-
-        <div class="footer-credit">
-            پڕۆگرامەر <b>بریندار شوکت</b>
-        </div>
+        <div class="footer-credit">پڕۆگرامەر <b>بریندار شوکت</b></div>
     </div>
 
     <div id="page-two" class="container">
         <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
+            <div id="qari-btn-wrapper" class="qari-header-btn" onclick="toggleQariMenu()">
+                <span style="font-size: 12px; color: #8e44ad; font-weight: bold;">قورئانخوین</span>
+                <div style="font-size:18px; color:#8e44ad; font-weight:bold;">⋮</div>
+            </div>
+
             <h2 id="title-display" class="title-display"></h2>
-            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ وانەیان بگەڕی...">
+            
+            <div id="qari-dropdown" class="qari-dropdown">
+                <div onclick="selectQari('https://server12.mp3quran.net/maher/', this)" class="active">ماهر المعيقلي</div>
+                <div onclick="selectQari('https://server11.mp3quran.net/yasser/', this)">ياسر الدوسري</div>
+                <div onclick="selectQari('https://server8.mp3quran.net/lhdan/', this)">محمد اللحيدان</div>
+            </div>
+
+            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ بابەتان بگەڕی...">
             <div id="items-list"></div>
         </div>
     </div>
@@ -105,38 +127,96 @@
     </div>
 
     <script>
+        let currentUrl = "https://server12.mp3quran.net/maher/";
+        let lastScrollPos = 0;
+
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        
         const dataBank = {
-            '📚 وانەیێن زانستێن شەرعی': [], 
             '🎤 گۆتارێن ئەینیێ': [
-                { name: '🎤 سالا نوى و ده سبيكرنا ساله كا دى د ژيانا مروفى دا', id: 'brbZ5Tn4NnA' },
+                { name: '🎤 سالا نوى و ده سبيكرنا ساله كا دى', id: 'brbZ5Tn4NnA' },
                 { name: '🎤 شارستانیەتا ئیسلامێ چ نیشا مە دایە؟', id: 'DngOedGEcWo' },
                 { name: '🎤 دیڤچوونا سوننەتێ و بەرسڤەک بۆ قورئانیان', id: 'gV39IqEZrEc' }
             ]
         };
-        function showPage(title, isLessons) {
+
+        function showPage(title, isLessons, isQuran = false) {
+            lastScrollPos = window.scrollY;
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
-            document.getElementById('searchInput').style.display = isLessons ? 'block' : 'none';
-            renderList(dataBank[title] || []);
+            document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
+            window.scrollTo(0, 0);
+            if(isQuran) renderQuran();
+            else renderList(dataBank[title] || []);
         }
+
+        function toggleQariMenu() {
+            const menu = document.getElementById('qari-dropdown');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function selectQari(url, element) {
+            currentUrl = url;
+            document.querySelectorAll('.qari-dropdown div').forEach(d => d.classList.remove('active'));
+            element.classList.add('active');
+            document.getElementById('qari-dropdown').style.display = 'none';
+            renderQuran();
+        }
+
+        function renderQuran() {
+            let listDiv = document.getElementById('items-list');
+            listDiv.innerHTML = surahs.map((s, i) => {
+                const num = (i + 1).toString().padStart(3, '0');
+                return `<div class="list-item" onclick="togglePlay(${i}, '${num}', event)">
+                            <span style="font-weight:bold; display:block;">سورة ${s}</span>
+                            <div id="audio-c-${i}" class="audio-container" onclick="event.stopPropagation()"></div>
+                        </div>`;
+            }).join('');
+        }
+
+        function togglePlay(index, num, event) {
+            if (event.target.tagName === 'AUDIO' || event.target.className === 'audio-player') return;
+            const container = document.getElementById(`audio-c-${index}`);
+            const existingAudio = container.querySelector('audio');
+            if (existingAudio) {
+                if (existingAudio.paused) existingAudio.play();
+                else existingAudio.pause();
+            } else {
+                document.querySelectorAll('.audio-container').forEach(c => {
+                    c.style.display = 'none';
+                    c.innerHTML = '';
+                });
+                container.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${num}.mp3" type="audio/mpeg"></audio>`;
+                container.style.display = 'block';
+            }
+        }
+
         function renderList(items) {
             let listDiv = document.getElementById('items-list');
             listDiv.innerHTML = items.length === 0 ? '<div style="color:#888; padding:20px;">ل نێزیک دێ هێنە زێدەکرن...</div>' : 
                 items.map(i => `<div class="list-item" onclick="playVideo('${i.id}')"><span style="font-weight:bold; display:block;">${i.name}</span><span style="font-size:12px; color:#10b981;">مەلا یەعقوب سندی</span></div>`).join('');
         }
+
         function playVideo(id) {
-            const overlay = document.getElementById('video-overlay');
             const iframe = document.getElementById('youtube-iframe');
-            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
-            overlay.style.display = 'flex';
+            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+            document.getElementById('video-overlay').style.display = 'flex';
         }
+
         function closeVideo() {
-            const overlay = document.getElementById('video-overlay');
-            const iframe = document.getElementById('youtube-iframe');
-            iframe.src = "";
-            overlay.style.display = 'none';
+            document.getElementById('youtube-iframe').src = "";
+            document.getElementById('video-overlay').style.display = 'none';
         }
+
+        function goBack() {
+            document.getElementById('page-two').style.display = 'none';
+            document.getElementById('page-counter').style.display = 'none';
+            document.getElementById('page-one').style.display = 'flex';
+            window.scrollTo(0, lastScrollPos);
+            document.querySelectorAll('audio').forEach(a => a.pause());
+        }
+
         function filterItems() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let items = document.getElementsByClassName('list-item');
@@ -144,12 +224,9 @@
                 items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "" : "none";
             }
         }
-        function goBack() {
-            document.getElementById('page-two').style.display = 'none';
-            document.getElementById('page-counter').style.display = 'none';
-            document.getElementById('page-one').style.display = 'flex';
-        }
+
         function showCounterPage() {
+            lastScrollPos = window.scrollY;
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-counter').style.display = 'block';
         }
