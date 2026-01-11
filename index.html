@@ -8,16 +8,27 @@
     <style>
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
-        .box { background: white; padding: 30px 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; }
-        .name-box h1 { margin: 0; color: #2d5a27; font-size: 42px; font-family: 'Amiri', serif; }
-        .info-box, .suggestion-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 21px; }
-        .bismillah { display: block; font-size: 26px; color: #2d5a27; margin-bottom: 10px; font-weight: bold; }
-        .dua-text { display: block; margin-top: 10px; color: #1e4d6b; font-weight: bold; }
+        
+        .profile-card { 
+            background: white; padding: 30px 25px; border-radius: 25px; text-align: center; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed;
+        }
+        .profile-img {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; }
+        .section-title { color: #2d5a27; font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 10px; display: block; border-bottom: 2px solid #f0f4f8; padding-bottom: 5px; }
+        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 20px; text-align: justify; display: block; }
+        
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); }
-        .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
         .form-input { width: 100%; height: 90px; border-radius: 12px; border: 1px solid #ddd; padding: 12px; outline: none; font-family: inherit; resize: none; box-sizing: border-box; background: #fafafa; margin-top: 15px; }
         .submit-btn { background: #444; color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 16px; }
         
@@ -25,34 +36,48 @@
         .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
         .search-field { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; }
         .list-item { background: #fff; padding: 15px 18px; margin-bottom: 12px; border-radius: 12px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; }
+
+        .video-overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
+        .video-box { width: 95%; max-width: 850px; position: relative; }
+        .video-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 15px; }
+        .close-video { position: absolute; top: -55px; left: 0; background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
         
-        .video-overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
-        .video-box { width: 95%; max-width: 800px; position: relative; }
-        .video-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 10px; }
-        .close-video { position: absolute; top: -50px; left: 0; background: white; color: black; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        
-        /* ناڤێ تە ل بنێ سایتێ */
         .footer-credit { margin-top: 30px; font-size: 15px; color: #777; text-align: center; border-top: 1px solid #ddd; padding-top: 15px; width: 100%; }
         .footer-credit b { color: #1e4d6b; }
-
         .stat-btn { margin-top: 15px; background: none; border: 1px solid #ccc; color: #888; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
     </style>
 </head>
 <body>
 
     <div id="page-one" class="container">
-        <div class="box name-box"><h1>مەلا یەعقوب سندی</h1></div>
-        <div class="box info-box">
-            <span class="bismillah">بسم الله الرحمن الرحيم</span>
-            ئەڤ مالپەڕە یێ گرێدایە ب گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی 
-            <span class="dua-text">خودێ ب پارێزیت</span>
+        <div class="profile-card">
+            <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" alt="مەلا یەعقوب سندی" class="profile-img">
+            <h1 style="margin: 0; color: #2d5a27; font-size: 32px; font-family: 'Amiri', serif;">مەلا یەعقوب سندی</h1>
+            <span style="color: #1e4d6b; font-weight: bold;">خودێ ب پارێزیت</span>
         </div>
+
+        <div class="box">
+            <span class="section-title">پێشەکی</span>
+            <span class="content-text">
+                حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی. خودێ ئەڤی کاری بۆ خۆ حیساب بکەت و بکەت د میزانیا خیرێن مە دا.
+            </span>
+        </div>
+
+        <div class="box">
+            <span class="section-title">زانیاری ل سەر مالپەڕی</span>
+            <span class="content-text">
+                ئەڤ مالپەڕە یێ تایبەتە ب بەلاڤکرنا گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی، دا کو ب ساناهیترین شێوە بگەهنە دەستێن گوهۆرداران.
+            </span>
+        </div>
+
         <div class="box btn-box">
             <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', true)">📚 وانەیێن زانستێن شەرعی</button>
             <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', false)">🎤 گۆتارێن ئەینیێ</button>
         </div>
+
         <div class="box">
-            <div class="suggestion-text">بۆ هەر پێشنیارەکێ دناڤ ویب سایتێ دا یان دروستبینا ئاریشەکێ دناڤ ویب سایتێ دا مە ل ڤێرێ ئاگەهدار بکە</div>
+            <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
+            <div style="font-family: 'Amiri', serif; color: #666; font-size: 18px;">بۆ هەر پێشنیارەکێ یان دروستبینا ئاریشەکێ د مالپەڕی دا مە ئاگەهدار بکە</div>
             <form action="https://formspree.io/f/XXXXX" method="POST">
                 <textarea name="message" class="form-input" placeholder="نڤیسینا تە لێرە..." required></textarea>
                 <button type="submit" class="submit-btn">فرێکرن</button>
@@ -67,7 +92,7 @@
     </div>
 
     <div id="page-two" class="container">
-        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px;" onclick="goBack()">⬅ زڤڕین</button>
+        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
             <h2 id="title-display" class="title-display"></h2>
             <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ وانەیان بگەڕی...">
@@ -83,7 +108,7 @@
     </div>
 
     <div id="page-counter" class="container">
-        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px;" onclick="goBack()">⬅ زڤڕین</button>
+        <button class="back-btn" style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
             <h2 style="color: #1e4d6b; margin-bottom: 20px;">📊 ئامارا سەرەدانکەران</h2>
             <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=8l8n8u3m5z1w3y1x7u4q9r1b6k7m4v9s" border="0">
