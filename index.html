@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
+    
+    <meta name="description" content="مالپەڕێ فەرمی یێ مامۆستا مەلا یەعقوب سندی بۆ گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی">
+    <meta name="keywords" content="مەلا یەعقوب سندی, گۆتارێن ئەینیێ, وانەیێن شەرعی, زاخۆ, ئیسلام">
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; padding: 40px 20px; 
+            background-color: #f0f4f8; 
+            display: flex; flex-direction: column; align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; }
+        .box { 
+            background: white; padding: 30px 25px; border-radius: 20px; 
+            text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+        }
+        .name-box h1 { margin: 0; color: #2d5a27; font-size: 42px; font-family: 'Amiri', serif; }
+        .info-box, .suggestion-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 22px; }
+        .bismillah { display: block; font-size: 26px; color: #2d5a27; margin-bottom: 10px; font-weight: bold; }
+        .dua-text { display: block; margin-top: 10px; color: #1e4d6b; font-weight: bold; }
+        .btn-box { display: flex; flex-direction: column; gap: 15px; }
+        .btn { 
+            padding: 18px; border-radius: 15px; border: none; font-weight: bold; 
+            cursor: pointer; transition: 0.3s; font-size: 18px; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); }
+        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); }
+        .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+        .form-input { 
+            width: 100%; height: 90px; border-radius: 12px; border: 1px solid #ddd; 
+            padding: 12px; outline: none; font-family: inherit; resize: none; box-sizing: border-box;
+            background: #fafafa; margin-top: 15px;
+        }
+        .submit-btn { 
+            background: #444; color: white; border: none; padding: 12px; border-radius: 10px; 
+            width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 16px;
+        }
+        #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
+        .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
+        .search-field { 
+            width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #e1e8ed; 
+            border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; display: none;
+        }
+        .list-item { 
+            background: #fff; padding: 12px 18px; margin-bottom: 12px; border-radius: 12px; 
+            text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; transition: 0.3s;
+        }
+        .list-item:hover { border-color: #2d5a27; transform: translateX(-5px); background: #f9fdf9; }
+        .item-title { font-weight: bold; font-size: 17px; color: #333; display: block; margin-bottom: 3px; }
+        .item-author { font-size: 13px; color: #10b981; font-weight: 500; }
+        .video-container { display: none; margin-top: 20px; background: #000; border-radius: 15px; overflow: hidden; position: relative; padding-top: 56.25%; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .back-btn { background: #444; color: white; border: none; padding: 12px 25px; border-radius: 12px; margin-bottom: 20px; cursor: pointer; font-weight: bold; }
+        .stat-btn { margin-top: 20px; background: none; border: 1px solid #ccc; color: #888; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 14px; }
+        .empty-msg { color: #888; font-style: italic; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="page-one" class="container">
+        <div class="box name-box">
+            <h1>مەلا یەعقوب سندی</h1>
+        </div>
+
+        <div class="box info-box">
+            <span class="bismillah">بسم الله الرحمن الرحيم</span>
+            ئەڤ مالپەڕە یێ گرێدایە ب گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی 
+            <span class="dua-text">خودێ ب پارێزیت</span>
+        </div>
+
+        <div class="box btn-box">
+            <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', true)">📚 وانەیێن زانستێن شەرعی</button>
+            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', false)">🎤 گۆتارێن ئەینیێ</button>
+        </div>
+
+        <div class="box">
+            <div class="suggestion-text">
+                بۆ هەر پێشنیارەکێ دناڤ ویب سایتێ دا یان ئاریشەکا ل دەفتە پەیدا بت ناف ویب سایتێ دا ل ڤێرێ مە ئاگەهدار بکە
+            </div>
+            <form action="https://formspree.io/f/XXXXX" method="POST">
+                <textarea name="message" class="form-input" placeholder="نڤیسینا تە لێرە..." required></textarea>
+                <button type="submit" class="submit-btn">فرێکرن</button>
+            </form>
+        </div>
+
+        <button class="stat-btn" onclick="showCounterPage()">📊 ئامارا سەرەدانان</button>
+    </div>
+
+    <div id="page-two">
+        <button class="back-btn" onclick="goBack()">⬅ زڤڕین بۆ سەرەکی</button>
+        <div class="box">
+            <h2 id="title-display" class="title-display"></h2>
+            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ وانەیان بگەڕی...">
+            <div id="items-list"></div>
+            <div id="video-player" class="video-container">
+                <iframe id="youtube-iframe" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-counter">
+        <button class="back-btn" onclick="goBack()">⬅ زڤڕین</button>
+        <div class="box">
+            <h2 style="color: #1e4d6b; margin-bottom: 20px;">📊 ئامارا سەرەدانکەران</h2>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 15px; border: 1px dashed #ccc;">
+                <a href="https://www.freecounterstat.com" title="website counter">
+                    <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=8l8n8u3m5z1w3y1x7u4q9r1b6k7m4v9s" border="0">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dataBank = {
+            '📚 وانەیێن زانستێن شەرعی': [], 
+            '🎤 گۆتارێن ئەینیێ': [
+                { name: '🎤 سالا نوى و ده سبيكرنا ساله كا دى د ژيانا مروفى دا', author: 'مەلا یەعقوب سندی', id: 'brbZ5Tn4NnA' },
+                { name: '🎤 شارستانیەتا ئیسلامێ چ نیشا مە دایە؟', author: 'مەلا یەعقوب سندی', id: 'DngOedGEcWo' },
+                { name: '🎤 دیڤچوونا سوننەتێ و بەرسڤەک بۆ قورئانیان', author: 'مەلا یەعقوب سندی', id: 'gV39IqEZrEc' }
+            ]
+        };
+
+        function showPage(title, isLessonsPage) {
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-two').style.display = 'block';
+            document.getElementById('page-counter').style.display = 'none';
+            document.getElementById('title-display').innerText = title;
+            document.getElementById('searchInput').style.display = isLessonsPage ? 'block' : 'none';
+            document.getElementById('searchInput').value = ''; 
+            renderList(dataBank[title] || []);
+            window.scrollTo(0,0);
+        }
+
+        function renderList(items) {
+            let listDiv = document.getElementById('items-list');
+            if (items.length === 0) {
+                listDiv.innerHTML = '<div class="empty-msg">ل نێزیک دێ هێنە زێدەکرن...</div>';
+            } else {
+                listDiv.innerHTML = items.map(i => `
+                    <div class="list-item" onclick="playVideo('${i.id}')">
+                        <span class="item-title">${i.name}</span>
+                        <span class="item-author">${i.author}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function playVideo(id) {
+            const player = document.getElementById('video-player');
+            const iframe = document.getElementById('youtube-iframe');
+            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&enablejsapi=1`;
+            player.style.display = 'block';
+            player.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function goBack() {
+            document.getElementById('page-two').style.display = 'none';
+            document.getElementById('page-counter').style.display = 'none';
+            document.getElementById('page-one').style.display = 'flex';
+            const iframe = document.getElementById('youtube-iframe');
+            iframe.src = ''; 
+            document.getElementById('video-player').style.display = 'none';
+        }
+
+        function filterItems() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let items = document.getElementsByClassName('list-item');
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "" : "none";
+            }
+        }
+
+        function showCounterPage() {
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-two').style.display = 'none';
+            document.getElementById('page-counter').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
