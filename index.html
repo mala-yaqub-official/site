@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
+    <meta name="description" content="مالپەڕێ فەرمی یێ مامۆستا مەلا یەعقوب سندی بۆ گۆتارێن ئەینیێ، وانەیێن شەرعی و قورئانا پیرۆز.">
+    <meta name="keywords" content="مەلا یەعقوب سندی, گۆتارێن ئەینیێ, قورئان, زانستێن شەرعی, بادینی, ملا یعقوب سندی">
+    <meta name="author" content="مەلا یەعقوب سندی">
+
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
@@ -117,9 +122,7 @@
             </div>
 
             <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="">
-            
             <center><div id="display-qari-name" class="selected-qari-name"></div></center>
-
             <div id="items-list"></div>
         </div>
     </div>
@@ -188,16 +191,12 @@
 
         function showPage(title, isLessons, isQuran = false) {
             lastScrollPos = window.scrollY;
-            
-            // --- پاقژکرنا سێرچێ دەمێ چوونا ناڤ پەیجەکی ---
             const searchInput = document.getElementById('searchInput');
             searchInput.value = ""; 
-
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
             document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
-            
             if(isQuran) {
                 searchInput.placeholder = "ل ناڤ سوورەتان بگەڕی...";
                 document.getElementById('display-qari-name').style.display = 'inline-block';
@@ -261,9 +260,7 @@
         }
 
         function goBack() {
-            // --- پاقژکرنا سێرچێ دەمێ زڤڕینێ ---
             document.getElementById('searchInput').value = ""; 
-
             document.getElementById('page-two').style.display = 'none';
             document.getElementById('page-counter').style.display = 'none';
             document.getElementById('page-one').style.display = 'flex';
