@@ -28,10 +28,7 @@
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
         .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
         .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; }
-        
-        /* شێوازێ ناڤێ قورئانخوێنێ هەلبژارتی */
         .selected-qari-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
-
         .list-item { background: #fff; padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; display: flex; align-items: center; justify-content: flex-start; gap: 15px; transition: 0.2s; }
         .list-item:active { transform: scale(0.98); background: #f9f9f9; }
         .surah-num { background: linear-gradient(135deg, #d4af37, #b8860b); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
@@ -109,7 +106,7 @@
                 <div onclick="selectQari('https://server8.mp3quran.net/lhdan/', this)">محمد اللحيدان</div>
             </div>
 
-            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ناڤ سوورەت یان بابەتان بگەڕی...">
+            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="">
             
             <center><div id="display-qari-name" class="selected-qari-name"></div></center>
 
@@ -144,12 +141,15 @@
             document.getElementById('title-display').innerText = title;
             document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
             
+            const searchInput = document.getElementById('searchInput');
+            
             if(isQuran) {
+                searchInput.placeholder = "ل ناڤ سوورەتان بگەڕی...";
                 document.getElementById('display-qari-name').style.display = 'inline-block';
-                // دیارکرنا ناڤێ قورئانخوێنێ دەستپێکێ
                 document.getElementById('display-qari-name').innerText = "قورئانخوین: ماهر المعيقلي";
                 renderQuran();
             } else {
+                searchInput.placeholder = "ل بابەتێ بگەڕی...";
                 document.getElementById('display-qari-name').style.display = 'none';
                 renderList(dataBank[title] || []);
             }
@@ -235,10 +235,7 @@
         function selectQari(url, element) {
             currentUrl = url;
             let qariName = element.innerText;
-            
-            // نیشاندانا ناڤێ هەلبژارتی
             document.getElementById('display-qari-name').innerText = "قورئانخوین: " + qariName;
-            
             document.querySelectorAll('.qari-dropdown div').forEach(d => d.classList.remove('active'));
             element.classList.add('active');
             document.getElementById('qari-dropdown').style.display = 'none';
