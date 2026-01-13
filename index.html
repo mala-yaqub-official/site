@@ -3,284 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
+
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
     <script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
           appId: "aab80fa7-db62-4f41-b3e1-9ecec6cac220",
+          safari_web_id: "web.onesignal.auto.1769647b-70c3-4f9e-a89c-36b135123d44",
+          notifyButton: { enable: true }
         });
       });
     </script>
-    
-    <meta name="google-site-verification" content="Kw4zJyzMF6T1EGvYuNyMvIod1OGM2hMK5K1JASB5eRw" />
-    
-    <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
-    <meta name="description" content="مالپەڕێ فەرمی یێ مامۆستا مەلا یەعقوب سندی بۆ گۆتارێن ئەینیێ، وانەیێن شەرعی و قورئانا پیرۆز.">
-    <meta name="keywords" content="مەلا یەعقوب سندی, گۆتارێن ئەینیێ, قورئان, زانستێن شەرعی, بادینی, ملا یعقوب سندی">
-    <meta name="author" content="مەلا یەعقوب سندی">
 
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
-        .profile-card { background: white; padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed; position: relative; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
-        .profile-img:active { transform: scale(0.96); }
-        .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; position: relative; }
-        .section-title { color: #2d5a27; font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 5px; display: block; }
-        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 20px; text-align: justify; display: block; }
-        .btn-box { display: flex; flex-direction: column; gap: 15px; }
-        .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; }
-        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
-        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: #f0f0f0; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; z-index: 10; }
-        .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border-radius: 12px; z-index: 100; width: 180px; text-align: right; overflow: hidden; }
-        .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 14px; font-weight: bold; color: #333; }
-        .form-input { width: 100%; height: 120px; border-radius: 12px; border: 1px solid #ddd; padding: 12px; outline: none; font-family: inherit; resize: none; box-sizing: border-box; background: #fafafa; margin-top: 15px; font-size: 16px; text-align: right; }
-        .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 18px; transition: 0.3s; }
-        #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
-        .title-display { font-family: 'Amiri', serif; color: #2d5a27; font-size: 32px; margin-bottom: 25px; text-align: center; }
-        .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: #fdfdfd; }
-        .selected-qari-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
-        .list-item { background: #fff; padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; display: flex; align-items: center; justify-content: flex-start; gap: 15px; transition: 0.2s; }
-        .list-item:active { transform: scale(0.98); background: #f9f9f9; }
-        .surah-num { background: linear-gradient(135deg, #d4af37, #b8860b); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
-        .surah-name { font-family: 'Amiri', serif; font-size: 22px; font-weight: 700; color: #333; flex-grow: 1; }
-        .audio-container { width: 100%; margin-top: 10px; display: none; }
-        .audio-player { width: 100%; height: 45px; }
-        .video-overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
-        .video-box { width: 95%; max-width: 850px; position: relative; }
-        .video-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 15px; }
-        .close-video { position: absolute; top: -55px; left: 0; background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        .footer-credit { margin-top: 30px; font-size: 14px; color: #aaa; text-align: center; border-top: 1px solid #eee; padding-top: 15px; width: 100%; font-style: italic; }
-        .gradient-line { height: 3px; background: linear-gradient(to left, #d4af37, #2d5a27, #d4af37); border: 0; margin: 10px auto 15px auto; width: 60%; border-radius: 2px; }
+        .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; }
+        .profile-card { background: white; padding: 30px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .btn-box { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; text-decoration: none; text-align: center; }
+        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); }
+        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); }
+        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); }
     </style>
 </head>
 <body>
-    <div id="page-one" class="container">
+    <div class="container">
         <div class="profile-card">
-            <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" onclick="showCounterPage()" alt="مەلا یەعقوب سندی" class="profile-img">
-            <h1 style="margin: 0; color: #2d5a27; font-size: 32px; font-family: 'Amiri', serif;">مەلا یەعقوب سندی</h1>
-            <span style="color: #1e4d6b; font-weight: bold;">خودێ ب پارێزیت</span>
+            <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" alt="مەلا یەعقوب سندی" class="profile-img">
+            <h1 style="color: #2d5a27; font-family: 'Amiri', serif;">مەلا یەعقوب سندی</h1>
+            <p>بخێرهاتی بۆ مالپەڕێ فەرمی</p>
         </div>
-        <div class="box">
-            <span class="section-title">پێشەکی</span>
-            <hr class="gradient-line">
-            <span class="content-text">
-                حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی.
-            </span>
-        </div>
-        <div class="box">
-            <span class="section-title">زانیاری ل سەر مالپەڕی</span>
-            <hr class="gradient-line">
-            <div class="content-text">
-                ئەڤ مالپەڕە یێ تایبەتە ب بەلاڤکرنا گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی، و گوهدارى كرنا قورئانا پيروز ب ده نگى چه ند قورئانخينا دا کو ب ساناهیترین شێوە بگەهنە دەستێن گوهۆرداران.
-                <hr class="gradient-line" style="width: 80%; opacity: 0.8;">
-                <span style="font-size: 18px; color: #2d5a27; display: block; text-align: center; font-weight: bold; font-family: 'Amiri', serif;">
-                    مەلا یەعقوب سندی گۆتارێن ئەینیێ ل مزگەفتا حجی فەتاح گۆیی دبیژیت
-                </span>
-            </div>
-        </div>
-        <div class="box btn-box">
-            <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', false, true)">📖 قورئانا پیرۆز</button>
-            <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', true)">📚 وانەیێن زانستێن شەرعی</button>
-            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', false)">🎤 گۆتارێن ئەینیێ</button>
-        </div>
-        <div class="box">
-            <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
-            <hr class="gradient-line" style="width: 40%;">
-            <form action="https://formspree.io/f/xbddrvgr" method="POST">
-                <textarea name="pishniyar" class="form-input" placeholder="پشنيار و ئاریشا ته ئوتوماتيكى دى كهت ده ستى مه" required></textarea>
-                <button type="submit" class="submit-btn">فرێکرنا پێشنیارێ</button>
-            </form>
-        </div>
-        <div class="footer-credit">صدقة جارية</div>
-    </div>
-    <div id="page-counter" class="container">
-        <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
-        <div class="box">
-            <span class="section-title">📊 ئامارا گشتی</span>
-            <img src="https://profile-counter.glitch.me/Yaqoub_Sindi_Secret_Counter/count.svg">
+        
+        <div class="btn-box">
+            <a href="#" class="btn btn-quran">📖 قورئانا پیرۆز</a>
+            <a href="#" class="btn btn-lessons">📚 وانەیێن شەرعی</a>
+            <a href="#" class="btn btn-videos">🎤 گۆتارێن ئەینیێ</a>
         </div>
     </div>
-    <div id="page-two" class="container">
-        <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
-        <div class="box">
-            <div id="qari-btn-wrapper" class="qari-header-btn" onclick="toggleQariMenu()">
-                <span style="font-size: 12px; color: #b8860b; font-weight: bold;">قورئانخوین</span>
-                <div style="font-size:18px; color:#b8860b; font-weight:bold;">⋮</div>
-            </div>
-            <h2 id="title-display" class="title-display"></h2>
-            <div id="qari-dropdown" class="qari-dropdown">
-                <div onclick="selectQari('https://server12.mp3quran.net/maher/', this)" class="active">ماهر المعيقلي</div>
-                <div onclick="selectQari('https://server11.mp3quran.net/yasser/', this)">ياسر الدوسري</div>
-                <div onclick="selectQari('https://server8.mp3quran.net/lhdan/', this)">محمد اللحيدان</div>
-            </div>
-            <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="">
-            <center><div id="display-qari-name" class="selected-qari-name"></div></center>
-            <div id="items-list"></div>
-        </div>
-    </div>
-    <div id="video-overlay" class="video-overlay-bg">
-        <div class="video-box">
-            <button class="close-video" onclick="closeVideo()">❌ داخستن</button>
-            <iframe id="youtube-iframe" src="" allow="autoplay; encrypted-media; fullscreen"></iframe>
-        </div>
-    </div>
-    <script>
-        let currentUrl = "https://server12.mp3quran.net/maher/";
-        let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
-        const dataBank = {
-            '🎤 گۆتارێن ئەینیێ': [
-                { name: '🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id: 'G859P5XVKSU' },
-                { name: '🎤 فیتنا دنیایێ', id: '5W1fuP0I6mQ' },
-                { name: '🎤 تووڕەبوون', id: 'rUHQfW5uN-M' },
-                { name: '🎤 دانا زەکاتێ', id: 'rCiSBBJKXZE' },
-                { name: '🎤 خێرا ڕۆژی گرتنێ و گرنگیا دینێ خودێ', id: 'J-F8I9EigX0' },
-                { name: '🎤 گرنگیا هەیفا ڕەمەزانێ و هندەک خەلەتی', id: '7t_K2ogSwLQ' },
-                { name: '🎤 ڕێکێن کەفتنا د زنایێ دا', id: 'Vu-fVSAw5aA' },
-                { name: '🎤 شینوارەکێ باش ل پشت خۆ بهێلە', id: 'Plok0okE2BI' },
-                { name: '🎤 ناڤێ خودێ تعالی ل سەر عەبدی', id: 'Xb_IFIHPAME' },
-                { name: '🎤 پیرۆزی و بەهاداری و مقدەسات', id: 'wcmlOIlQ4zI' },
-                { name: '🎤 زنا و بەلاڤبوونا زنایێ', id: 'H_b7p3E58cw' },
-                { name: '🎤 دەین', id: 'Y6UFIr3OMyg' },
-                { name: '🎤 گرنگیا نڤێژێ و گونەها هێلانا نڤێژێ', id: '0o90PjLQLsk' },
-                { name: '🎤 مەرجێ قەبیلبینا عیبادەتی', id: 'FhcaxeKTbj8' },
-                { name: '🎤 چاککرنا کۆمەلگەهی', id: 'm8j5PA-iQr0' },
-                { name: '🎤 حەقی', id: 'G1PJyir91zM' },
-                { name: '🎤 فەزلی استغفار و ئەگەرێ نەهاتنا بارانێ', id: '3TJQR166CW4' },
-                { name: '🎤 مەترسیا فەتوا دانا بێ زانین', id: '4AH-tgZqCLo' },
-                { name: '🎤 حەژێکرن د ئیسلامێ دا و ڕۆژا ئەڤینداران', id: 'Wzpd-zXMEJk' },
-                { name: '🎤 بەلاڤکرنا حەدیسێن نەدروست', id: 'IvIFE54JQwc' },
-                { name: '🎤 دیڤچوونا حەقیێ', id: 'T-sANVnwtUA' },
-                { name: '🎤 گرنگیا ئەمانەتی', id: 'iswgGsmocEw' },
-                { name: '🎤 گونەه و زەرەرا گونەهێ', id: '42jE--S7CMo' },
-                { name: '🎤 مەترسیا ڕاگەهاندنا خراب', id: 'r80U7QFUcDg' },
-                { name: '🎤 فتنە القول بالقران - ئەڤ دینە دێ هەر ب سەرکەڤیت', id: 'FXCcvH4WlDg' },
-                { name: '🎤 سحر و مەترسیا سحری', id: 'CArjN7k5HM8' },
-                { name: '🎤 پێشوازیکرنا هەیفا ڕەمەزانێ', id: '81LyyvH67kg' },
-                { name: '🎤 شوکرا خودێ تعالی', id: 'KR9n4X7p_8Q' },
-                { name: '🎤 خێرا ڕۆژا ئەینیێ', id: 'iTcf04lJqLk' },
-                { name: '🎤 پەروەردەکرنا زارۆکان', id: 'Hoh44e7PB4E' },
-                { name: '🎤 ژیانا دنیایێ', id: 'JrxColDqQcE' },
-                { name: '🎤 گۆتارا ڕۆژا جەژنێ', id: '3GqYGFucrXo' },
-                { name: '🎤 کارێن خێرا وان هندی یا حەجێ', id: '1kwGVMkjEb8' },
-                { name: '🎤 ژێکڤەبوونا ئوممەتێ', id: 'HAP30LS_5HU' },
-                { name: '🎤 تشتەکی بۆ قیامەتا خۆ بکە', id: 'yVKAsAMQNk0' },
-                { name: '🎤 مەترسیا مادێ بێهۆشکەر', id: 'jMH1q-zK7IU' },
-                { name: '🎤 دینێ پێغەمبەران چ بوو؟', id: 'u8UNjJ_e7CU' },
-                { name: '🎤 گرنگیا غیرەتێ ل سەر دینێ خودێ', id: '8n_o-uyAmEY' },
-                { name: '🎤 هندەک سەربۆر', id: 'AaD4xlsqqJo' },
-                { name: '🎤 فیتنە', id: 'dr4aeN1z3JE' },
-                { name: '🎤 خەفلەت و بێ ئاگەهی', id: 'mT3vjl64NeY' },
-                { name: '🎤 دەعوەکرن بۆ تەوحیدی', id: 'LMVfVhjcPiM' },
-                { name: '🎤 نڤێژ ئێکە ژ ستینێن ئیسلامێ', id: 'v768w9XJFCE' },
-                { name: '🎤 ئاگەهداری ژ زۆرداریێ', id: '1SKOJKgiMlw' }
-            ],
-            '📚 وانەیێن زانستێن شەرعی': []
-        };
-        function showPage(title, isLessons, isQuran = false) {
-            lastScrollPos = window.scrollY;
-            const searchInput = document.getElementById('searchInput');
-            searchInput.value = ""; 
-            document.getElementById('page-one').style.display = 'none';
-            document.getElementById('page-two').style.display = 'block';
-            document.getElementById('title-display').innerText = title;
-            document.getElementById('qari-btn-wrapper').style.display = isQuran ? 'flex' : 'none';
-            if(isQuran) {
-                searchInput.placeholder = "ل ناڤ سوورەتان بگەڕی...";
-                document.getElementById('display-qari-name').style.display = 'inline-block';
-                document.getElementById('display-qari-name').innerText = "قورئانخوین: ماهر المعيقلي";
-                renderQuran();
-            } else {
-                searchInput.placeholder = "ل بابەتێ بگەڕی...";
-                document.getElementById('display-qari-name').style.display = 'none';
-                renderList(dataBank[title] || []);
-            }
-            window.scrollTo(0, 0);
-        }
-        function renderQuran() {
-            let listDiv = document.getElementById('items-list');
-            listDiv.innerHTML = surahs.map((s, i) => {
-                const num = (i + 1).toString().padStart(3, '0');
-                return `<div class="list-item" onclick="handleQuranClick('${s}', ${i}, '${num}', event)">
-                            <div class="surah-num">${i + 1}</div>
-                            <div style="flex-grow:1; text-align:right;">
-                                <span class="surah-name">سورة ${s}</span>
-                                <div id="audio-c-${i}" class="audio-container" onclick="event.stopPropagation()"></div>
-                            </div>
-                        </div>`;
-            }).join('');
-        }
-        function handleQuranClick(name, index, num, event) {
-            if (event.target.tagName === 'AUDIO') return;
-            const container = document.getElementById(`audio-c-${index}`);
-            if (container.style.display === 'block') {
-                container.style.display = 'none';
-                container.innerHTML = '';
-            } else {
-                document.querySelectorAll('.audio-container').forEach(c => {c.style.display = 'none'; c.innerHTML = '';});
-                container.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${num}.mp3" type="audio/mpeg"></audio>`;
-                container.style.display = 'block';
-            }
-        }
-        function renderList(items) {
-            let listDiv = document.getElementById('items-list');
-            listDiv.innerHTML = items.length === 0 ? '<div style="color:#888; padding:20px;">ل نێزیک دێ هێنە زێدەکرن...</div>' : 
-                items.map((i, idx) => `<div class="list-item" onclick="playVideo('${i.id}')">
-                            <div class="surah-num" style="background:#1e4d6b;">${idx + 1}</div>
-                            <div style="flex-grow:1; text-align:right;">
-                                <span class="surah-name" style="font-size:18px;">${i.name}</span>
-                                <span style="font-size:12px; color:#10b981; display:block;">مەلا یەعقوب سندی (خودێ ب پارێزیت)</span>
-                            </div>
-                        </div>`).join('');
-        }
-        function playVideo(id) {
-            document.getElementById('youtube-iframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-            document.getElementById('video-overlay').style.display = 'flex';
-        }
-        function closeVideo() {
-            document.getElementById('youtube-iframe').src = "";
-            document.getElementById('video-overlay').style.display = 'none';
-        }
-        function goBack() {
-            document.getElementById('searchInput').value = ""; 
-            document.getElementById('page-two').style.display = 'none';
-            document.getElementById('page-counter').style.display = 'none';
-            document.getElementById('page-one').style.display = 'flex';
-            window.scrollTo(0, lastScrollPos);
-            document.querySelectorAll('audio').forEach(a => a.pause());
-        }
-        function showCounterPage() {
-            lastScrollPos = window.scrollY;
-            document.getElementById('page-one').style.display = 'none';
-            document.getElementById('page-counter').style.display = 'block';
-        }
-        function filterItems() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let items = document.getElementsByClassName('list-item');
-            for (let i = 0; i < items.length; i++) {
-                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none";
-            }
-        }
-        function toggleQariMenu() {
-            const menu = document.getElementById('qari-dropdown');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-        function selectQari(url, element) {
-            currentUrl = url;
-            let qariName = element.innerText;
-            document.getElementById('display-qari-name').innerText = "قورئانخوین: " + qariName;
-            document.querySelectorAll('.qari-dropdown div').forEach(d => d.classList.remove('active'));
-            element.classList.add('active');
-            document.getElementById('qari-dropdown').style.display = 'none';
-            renderQuran();
-        }
-    </script>
 </body>
 </html>
