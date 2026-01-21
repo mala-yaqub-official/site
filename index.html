@@ -6,14 +6,16 @@
     <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        :root { --bg-color: #f0f4f8; --card-bg: white; --text-color: #444; --title-color: #2d5a27; --border-color: #e1e8ed; }
+        body.dark-mode { --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #e0e0e0; --title-color: #81c784; --border-color: #333; }
+        body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: var(--bg-color); display: flex; flex-direction: column; align-items: center; min-height: 100vh; transition: 0.3s; }
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
-        .profile-card { background: white; padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #e1e8ed; position: relative; }
+        .profile-card { background: var(--card-bg); padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid var(--border-color); position: relative; }
         .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
-        .box { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; position: relative; overflow: hidden; }
-        .section-title { color: #2d5a27; font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 5px; display: block; }
-        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: #444; font-size: 20px; text-align: justify; display: block; }
-        .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: #2d5a27; display: block; margin: 10px 0 20px 0; font-weight: bold; text-align: center; }
+        .box { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--border-color); position: relative; overflow: hidden; color: var(--text-color); }
+        .section-title { color: var(--title-color); font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 5px; display: block; }
+        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: var(--text-color); font-size: 20px; text-align: justify; display: block; }
+        .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: var(--title-color); display: block; margin: 10px 0 20px 0; font-weight: bold; text-align: center; }
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; }
         .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; }
@@ -21,27 +23,31 @@
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
         .new-dot { position: absolute; top: 12px; right: 12px; width: 12px; height: 12px; background-color: #ff4d4d; border-radius: 50%; border: 2px solid white; animation: pulse 1.5s infinite; display: none; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
-        .list-item { background: #fff; padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid #eee; cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .list-header { display: flex; align-items: center; gap: 15px; width: 100%; }
         .surah-num { background: #2d5a27; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
-        .surah-name { font-family: 'Amiri', serif; font-size: 21px; font-weight: 700; color: #333; flex-grow: 1; }
+        .surah-name { font-family: 'Amiri', serif; font-size: 24px; font-weight: 700; color: var(--text-color); flex-grow: 1; }
         .video-container { width: calc(100% + 36px); margin: 10px -18px -12px -18px; display: none; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .audio-container { width: 100%; margin-top: 10px; display: none; }
         .audio-player { width: 100%; height: 45px; }
-        .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid #e1e8ed; border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; }
+        .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid var(--border-color); border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
         .selected-qari-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
-        .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: white; box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 200px; text-align: right; border: 1px solid #d4af37; max-height: 250px; overflow-y: auto; }
-        .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 15px; font-weight: bold; color: #333; }
-        .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: #f0f0f0; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; z-index: 10; }
+        body.dark-mode .selected-qari-name { background: #252525; border-color: #b8860b; }
+        .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 200px; text-align: right; border: 1px solid #d4af37; max-height: 250px; overflow-y: auto; }
+        .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; font-size: 15px; font-weight: bold; color: var(--text-color); }
+        .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: var(--bg-color); padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); }
         .gradient-line { height: 3px; background: linear-gradient(to left, #d4af37, #2d5a27, #d4af37); border: 0; margin: 10px auto 15px auto; width: 60%; }
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
-        .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid #ddd; padding: 12px; margin-top: 15px; text-align: right; font-family: inherit; resize: none; box-sizing: border-box; }
+        .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); padding: 12px; margin-top: 15px; text-align: right; font-family: inherit; resize: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 17px; }
+        .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
     <div id="page-one" class="container">
         <div class="profile-card">
             <img src="https://i.ibb.co/NnF0vY97/1739285834946.jpg" onclick="showCounterPage()" class="profile-img">
@@ -96,13 +102,15 @@
     </div>
 
     <script>
-        let currentUrl = "https://server12.mp3quran.net/maher/";
-        let currentQariName = "ماهر المعيقلي";
+        let currentUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
+        let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
+        if(localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
         let lastScrollPos = 0;
         const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        
         const dataBank = {
             'videos': [
-                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU', isNew:true },
+                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' },
                 { uid:'v2', name:'🎤 فیتنا دنیایێ', id:'5W1fuP0I6mQ' }, { uid:'v3', name:'🎤 تووڕەبوون', id:'rUHQfW5uN-M' },
                 { uid:'v4', name:'🎤 دانا زەکاتێ', id:'rCiSBBJKXZE' }, { uid:'v5', name:'🎤 خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' },
                 { uid:'v6', name:'🎤 گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' }, { uid:'v7', name:'🎤 ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' },
@@ -124,59 +132,34 @@
                 { uid:'v38', name:'🎤 گرنگیا غیرەتێ', id:'8n_o-uyAmEY' }, { uid:'v39', name:'🎤 هندەک سەربۆر', id:'AaD4xlsqqJo' },
                 { uid:'v40', name:'🎤 فیتنە', id:'dr4aeN1z3JE' }, { uid:'v41', name:'🎤 خەفلەت و بێ ئاگەهی', id:'mT3vjl64NeY' },
                 { uid:'v42', name:'🎤 دەعوەکرن بۆ تەوحیدی', id:'LMVfVhjcPiM' }, { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' },
-                { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' }
+                { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' },
+                { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw', isNew:true }
             ],
             'lessons': [{ uid:'L1', name:'📚 شروڤە کرنا کیتابا سفینة النجاة - 01', id:'-mTWoyCuygQ', isNew:true }]
         };
 
-        function checkDots() {
-            ['videos', 'lessons'].forEach(cat => {
-                const hasNew = dataBank[cat].some(i => i.isNew && !localStorage.getItem('seen_'+i.uid));
-                if(document.getElementById('dot-'+cat)) document.getElementById('dot-'+cat).style.display = hasNew ? 'block' : 'none';
-            });
-        }
-        function showPage(title, category) {
-            lastScrollPos = window.scrollY;
-            document.getElementById('page-one').style.display = 'none';
-            document.getElementById('page-two').style.display = 'block';
-            document.getElementById('title-display').innerText = title;
-            document.getElementById('searchInput').value = "";
-            const qariBtn = document.getElementById('qari-btn-wrapper');
-            const qariNameDisp = document.getElementById('display-qari-name');
-            if(category === 'quran') { qariBtn.style.display = 'flex'; qariNameDisp.style.display = 'inline-block'; qariNameDisp.innerText = "قورئانخوین: " + currentQariName; renderQuran(); }
-            else { qariBtn.style.display = 'none'; qariNameDisp.style.display = 'none'; renderList(category); }
-            window.scrollTo(0,0);
-        }
-        function renderQuran() {
-            document.getElementById('items-list').innerHTML = surahs.map((s, i) => {
-                const n = (i+1).toString().padStart(3,'0');
-                return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><span class="surah-name">سورة ${s}</span></div><div id="audio-c-${i}" class="audio-container"></div></div>`;
-            }).join('');
-        }
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); document.querySelector('.dark-mode-toggle').innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙'; }
+        function checkDots() { ['videos', 'lessons'].forEach(cat => { const hasNew = dataBank[cat].some(i => i.isNew && !localStorage.getItem('seen_'+i.uid)); if(document.getElementById('dot-'+cat)) document.getElementById('dot-'+cat).style.display = hasNew ? 'block' : 'none'; }); }
+        function showPage(title, category) { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-two').style.display = 'block'; document.getElementById('title-display').innerText = title; document.getElementById('searchInput').value = ""; const qariBtn = document.getElementById('qari-btn-wrapper'); const qariNameDisp = document.getElementById('display-qari-name'); if(category === 'quran') { qariBtn.style.display = 'flex'; qariNameDisp.style.display = 'inline-block'; qariNameDisp.innerText = "قورئانخوین: " + currentQariName; renderQuran(); } else { qariBtn.style.display = 'none'; qariNameDisp.style.display = 'none'; renderList(category); } window.scrollTo(0,0); }
+        function renderQuran() { document.getElementById('items-list').innerHTML = surahs.map((s, i) => { const n = (i+1).toString().padStart(3,'0'); return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><span class="surah-name">سورة ${s}</span></div><div id="audio-c-${i}" class="audio-container"></div></div>`; }).join(''); }
+        
         function renderList(cat) {
-            document.getElementById('items-list').innerHTML = dataBank[cat].map((item, idx) => {
+            // ئەڤ دێرە لیستێ هەڵدگەڕینیت دا کو نووترین ل سەرێ لیستێ بیت
+            const sortedData = dataBank[cat].slice().reverse();
+            document.getElementById('items-list').innerHTML = sortedData.map((item, idx) => {
                 const isNew = item.isNew && !localStorage.getItem('seen_'+item.uid);
                 return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${idx+1}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<b id="dot-item-'+item.uid+'" style="color:red;"> •</b>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
-        function handleVideo(uid, id, idx) {
-            localStorage.setItem('seen_'+uid, 'true');
-            if(document.getElementById('dot-item-'+uid)) document.getElementById('dot-item-'+uid).style.display='none';
-            const c = document.getElementById(`video-c-${idx}`);
-            if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; }
-            else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`; c.style.display = 'block'; const ifr = c.querySelector('iframe'); setTimeout(() => { if(ifr.requestFullscreen) ifr.requestFullscreen(); else if(ifr.webkitRequestFullscreen) ifr.webkitRequestFullscreen(); }, 500); }
-        }
-        function handleQuran(idx, n) {
-            const c = document.getElementById(`audio-c-${idx}`);
-            if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; }
-            else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${n}.mp3"></audio>`; c.style.display = 'block'; }
-        }
+
+        function handleVideo(uid, id, idx) { localStorage.setItem('seen_'+uid, 'true'); if(document.getElementById('dot-item-'+uid)) document.getElementById('dot-item-'+uid).style.display='none'; const c = document.getElementById(`video-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`; c.style.display = 'block'; } }
+        function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
         function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); document.querySelectorAll('audio').forEach(a => a.pause()); }
         function goBack() { stopAll(); document.getElementById('page-two').style.display = 'none'; document.getElementById('page-counter').style.display = 'none'; document.getElementById('page-one').style.display = 'flex'; checkDots(); window.scrollTo(0, lastScrollPos); }
         function showCounterPage() { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-counter').style.display = 'block'; }
         function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
         function toggleQariMenu(e) { e.stopPropagation(); const m = document.getElementById('qari-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
-        function selectQari(url, name) { currentUrl = url; currentQariName = name; document.getElementById('display-qari-name').innerText = "قورئانخوین: " + name; document.getElementById('qari-dropdown').style.display='none'; renderQuran(); }
+        function selectQari(url, name) { currentUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); document.getElementById('display-qari-name').innerText = "قورئانخوین: " + name; document.getElementById('qari-dropdown').style.display='none'; renderQuran(); }
         document.addEventListener('click', () => { document.getElementById('qari-dropdown').style.display = 'none'; });
         checkDots();
     </script>
