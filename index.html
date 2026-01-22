@@ -136,9 +136,15 @@
                 { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw', isNew:true }
             ],
             'lessons': [
-                { uid:'L1', name:'📚 شروڤە کرنا کیتابا سفینة النجاة - 01', id:'-mTWoyCuygQ' },
-                { uid:'L2', name:'📚 شروڤە کرنا کیتابا سفینة النجاة - 02', id:'_xD0_oAqCw4', isNew:true },
-                { uid:'L3', name:'📚 شروڤە کرنا کیتابا سفینة النجاة - 03', id:'i1pBIfXphsA', isNew:true }
+                { uid:'L0', name:'شیره ته ك بو داخازكه رى زانينى 📌', id:'pkGErf-iwjo', isNew: true },
+                { uid:'L1', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا ئيكى', id:'V5EtMthoFvI', isNew: true },
+                { uid:'L2', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا دوويى', id:'NSq7WdBPAL4', isNew: true },
+                { uid:'L3', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا سيى', id:'1I9ASYOAfQ8', isNew: true },
+                { uid:'L4', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا جارى', id:'GD-E58hruVQ', isNew: true },
+                { uid:'L5', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا بينج', id:'ObzgVlYc_ss', isNew: true },
+                { uid:'L6', name:'شروفه كرنا په رتوكا سفينة النجاة وانا ئيكى', id:'kch-a72AEls', isNew: true },
+                { uid:'L7', name:'شروفه كرنا په رتوكا سفينة النجاة وانا دوويى', id:'_-eZrXskT6U', isNew: true },
+                { uid:'L8', name:'شروفه كرنا په رتوكا سفينة النجاة وانا سيى', id:'qlTg4SLths4', isNew: true }
             ]
         };
 
@@ -148,14 +154,11 @@
         function renderQuran() { document.getElementById('items-list').innerHTML = surahs.map((s, i) => { const n = (i+1).toString().padStart(3,'0'); return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><span class="surah-name">سورة ${s}</span></div><div id="audio-c-${i}" class="audio-container"></div></div>`; }).join(''); }
         
         function renderList(cat) {
-            // ئەگەر وانە بن (lessons) دێ وەک خۆ نیشان دەت، ئەگەر گۆتار بن دێ بەروڤاژی کەت
             let displayData = (cat === 'lessons') ? dataBank[cat] : dataBank[cat].slice().reverse();
-            
             document.getElementById('items-list').innerHTML = displayData.map((item, idx) => {
                 const isNew = item.isNew && !localStorage.getItem('seen_'+item.uid);
-                // ژمارەیا ل سەر بازنەی دێ ل دویڤ ڕێزبەندیا لیستا داتا بانکی بیت
                 const displayIdx = (cat === 'lessons') ? idx + 1 : dataBank[cat].length - idx;
-                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayIdx}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<b id="dot-item-'+item.uid+'" style="color:red;"> •</b>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayIdx}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<b id="dot-item-'+item.uid+'" style="color:red; animation: pulse 1.5s infinite; display: inline-block; margin-right: 5px;">•</b>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
 
