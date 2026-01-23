@@ -10,7 +10,7 @@
     <meta name="author" content="مەلا یەعقوب سندی">
     
     <meta property="og:title" content="مەلا یەعقوب سندی - مالپەڕێ فەرمی">
-    <meta property="og:description" content="گوهداریا گۆتار و وانەیێن شەرعی یێن مامۆستا مەلا یەعقوب سندی بکە.">
+    <meta property="og:description" content="گوهداریا گۆتار و وانەیێن شەرعی یێ مامۆستا مەلا یەعقوب سندی بکە.">
     <meta property="og:image" content="https://i.ibb.co/NnF0vY97/1739285834946.jpg">
     <meta property="og:type" content="website">
 
@@ -28,9 +28,15 @@
         .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: var(--title-color); display: block; margin: 10px 0 20px 0; font-weight: bold; text-align: center; }
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; }
-        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; }
-        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
-        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
+        
+        .btn-about { background: linear-gradient(135deg, #1a1a1a, #333); order: 1; color: #ffffff !important; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 2; }
+        .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 3; }
+        .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 4; }
+
+        .new-badge-dot { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; }
+        @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
+
         .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .list-header { display: flex; align-items: center; gap: 15px; width: 100%; }
         .surah-num { background: #2d5a27; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
@@ -70,15 +76,21 @@
             <span class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
             <span class="content-text">حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی.</span>
         </div>
+        
         <div class="box">
             <span class="section-title">زانیاری ل سەر مالپەڕی</span>
             <hr class="gradient-line">
             <div class="content-text">ئەڤ مالپەڕە یێ تایبەتە ب بەلاڤکرنا گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی، و گوهدارى كرنا قورئانا پيروز ب ده نگى چه ند قورئانخينا دا کو ب ساناهیترین شێوە بگەهنە دەستێن گوهۆرداران.<hr class="gradient-line" style="width: 80%;"><span style="font-size:18px; color:#2d5a27; display:block; text-align:center; font-weight:bold; font-family:'Amiri', serif;">مەلا یەعقوب سندی گۆتارێن ئەینیێ ل مزگەفتا حجی فەتاح گۆیی دبیژیت</span></div>
         </div>
+
         <div class="box btn-box">
+            <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی</button>
-            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">🎤 گۆتارێن ئەینیێ</button>
+            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">
+                <div class="new-badge-dot"></div>
+                🎤 گۆتارێن ئەینیێ
+            </button>
         </div>
         <div class="box">
             <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
@@ -108,10 +120,56 @@
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
         let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","الناس","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        
         const dataBank = {
             'videos': [
-                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' }, { uid:'v2', name:'🎤 فیتنا دنیایێ', id:'5W1fuP0I6mQ' }, { uid:'v3', name:'🎤 تووڕەبوون', id:'rUHQfW5uN-M' }, { uid:'v4', name:'🎤 دانا زەکاتێ', id:'rCiSBBJKXZE' }, { uid:'v5', name:'🎤 خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' }, { uid:'v6', name:'🎤 گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' }, { uid:'v7', name:'🎤 ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' }, { uid:'v8', name:'🎤 شینوارەکێ باش', id:'Plok0okE2BI' }, { uid:'v9', name:'🎤 ناڤێ خودێ تعالی', id:'Xb_IFIHPAME' }, { uid:'v10', name:'🎤 پیرۆزی و بەهاداری', id:'wcmlOIlQ4zI' }, { uid:'v11', name:'🎤 زنا و بەلاڤبوونا زنایێ', id:'H_b7p3E58cw' }, { uid:'v12', name:'🎤 دەین', id:'Y6UFIr3OMyg' }, { uid:'v13', name:'🎤 گرنگیا نڤێژێ', id:'0o90PjLQLsk' }, { uid:'v14', name:'🎤 مەرجێ قەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' }, { uid:'v15', name:'🎤 چاککرنا کۆمەلگەهی', id:'m8j5PA-iQr0' }, { uid:'v16', name:'🎤 حەقی', id:'G1PJyir91zM' }, { uid:'v17', name:'🎤 فەزلی استغفار', id:'3TJQR166CW4' }, { uid:'v18', name:'🎤 مەترسیا فەتوا دانا بێ زانین', id:'4AH-tgZqCLo' }, { uid:'v19', name:'🎤 حەژێکرن د ئیسلامێ دا', id:'Wzpd-zXMEJk' }, { uid:'v20', name:'🎤 بەلاڤکرنا حەدیسێن نەدروست', id:'IvIFE54JQwc' }, { uid:'v21', name:'🎤 دیڤچوونا حەقیێ', id:'T-sANVnwtUA' }, { uid:'v22', name:'🎤 گرنگیا ئەمانەتی', id:'iswgGsmocEw' }, { uid:'v23', name:'🎤 گونەه و زەرەرا گونەهێ', id:'42jE--S7CBo' }, { uid:'v24', name:'🎤 مەترسیا ڕاگەهاندنا خراب', id:'r80U7QFUcDg' }, { uid:'v25', name:'🎤 فتنە القول بالقران', id:'FXCcvH4WlDg' }, { uid:'v26', name:'🎤 سحر و مەترسیا سحری', id:'CArjN7k5HM8' }, { uid:'v27', name:'🎤 پێشوازیکرنا هەیفا ڕەمەزانێ', id:'81LyyvH67kg' }, { uid:'v28', name:'🎤 شوکرا خودێ تعالی', id:'KR9n4X7p_8Q' }, { uid:'v29', name:'🎤 خێرا ڕۆژا ئەینیێ', id:'iTcf04lJqLk' }, { uid:'v30', name:'🎤 پەروەردەکرنا زارۆکان', id:'Hoh44e7PB4E' }, { uid:'v31', name:'🎤 ژیانا دنیایێ', id:'JrxColDqQcE' }, { uid:'v32', name:'🎤 گۆتارا ڕۆژا جەژنێ', id:'3GqYGFucrXo' }, { uid:'v33', name:'🎤 کارێن خێرا وان هندی یا حەجێ', id:'1kwGVMkjEb8' }, { uid:'v34', name:'🎤 ژێکڤەبوونا ئوممەتێ', id:'HAP30LS_5HU' }, { uid:'v35', name:'🎤 تشتەکی بۆ قیامەتا خۆ بکە', id:'yVKAsAMQNk0' }, { uid:'v36', name:'🎤 مەترسیا مادێ بێهۆشکەر', id:'jMH1q-zK7IU' }, { uid:'v37', name:'🎤 دینێ پێغەمبەران چ بوو؟', id:'u8UNjJ_e7CU' }, { uid:'v38', name:'🎤 گرنگیا غیرەتێ', id:'8n_o-uyAmEY' }, { uid:'v39', name:'🎤 هندەک سەربۆر', id:'AaD4xlsqqJo' }, { uid:'v40', name:'🎤 فیتنە', id:'dr4aeN1z3JE' }, { uid:'v41', name:'🎤 خەفلەت و بێ ئاگەهی', id:'mT3vjl64NeY' }, { uid:'v42', name:'🎤 دەعوەکرن بۆ تەوحیدی', id:'LMVfVhjcPiM' }, { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' }, { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' }, { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw', isNew:true }
+                { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟ <span style="color:#ff3b30;">(نوو 🆕)</span>', id:'f46RlppeDUg' },
+                { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw' },
+                { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' },
+                { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' },
+                { uid:'v42', name:'🎤 دەعوەکرن بۆ تەوحیدی', id:'LMVfVhjcPiM' },
+                { uid:'v41', name:'🎤 خەفلەت و بێ ئاگەهی', id:'mT3vjl64NeY' },
+                { uid:'v40', name:'🎤 فیتنە', id:'dr4aeN1z3JE' },
+                { uid:'v39', name:'🎤 هندەک سەربۆر', id:'AaD4xlsqqJo' },
+                { uid:'v38', name:'🎤 گرنگیا غیرەتێ', id:'8n_o-uyAmEY' },
+                { uid:'v37', name:'🎤 دینێ پێغەمبەران چ بوو؟', id:'u8UNjJ_e7CU' },
+                { uid:'v36', name:'🎤 مەترسیا مادێ بێهۆشکەر', id:'jMH1q-zK7IU' },
+                { uid:'v35', name:'🎤 تشتەکی بۆ قیامەتا خۆ بکە', id:'yVKAsAMQNk0' },
+                { uid:'v34', name:'🎤 ژێکڤەبوونا ئوممەتێ', id:'HAP30LS_5HU' },
+                { uid:'v33', name:'🎤 کارێن خێرا وان هندی یا حەجێ', id:'1kwGVMkjEb8' },
+                { uid:'v32', name:'🎤 گۆتارا ڕۆژا جەژنێ', id:'3GqYGFucrXo' },
+                { uid:'v31', name:'🎤 ژیانا دنیایێ', id:'JrxColDqQcE' },
+                { uid:'v30', name:'🎤 پەروەردەکرنا زارۆکان', id:'Hoh44e7PB4E' },
+                { uid:'v29', name:'🎤 خێرا ڕۆژا ئەینیێ', id:'iTcf04lJqLk' },
+                { uid:'v28', name:'🎤 شوکرا خودێ تعالی', id:'KR9n4X7p_8Q' },
+                { uid:'v27', name:'🎤 پێشوازیکرنا هەیفا ڕەمەزانێ', id:'81LyyvH67kg' },
+                { uid:'v26', name:'🎤 سحر و مەترسیا سحری', id:'CArjN7k5HM8' },
+                { uid:'v25', name:'🎤 فتنە القول بالقران', id:'FXCcvH4WlDg' },
+                { uid:'v24', name:'🎤 مەترسیا ڕاگەهاندنا خراب', id:'r80U7QFUcDg' },
+                { uid:'v23', name:'🎤 گونەه و زەرەرا گونەهێ', id:'42jE--S7CBo' },
+                { uid:'v22', name:'🎤 گرنگیا ئەمانەتی', id:'iswgGsmocEw' },
+                { uid:'v21', name:'🎤 دیڤچوونا حەقیێ', id:'T-sANVnwtUA' },
+                { uid:'v20', name:'🎤 بەلاڤکرنا حەدیسێن نەدروست', id:'IvIFE54JQwc' },
+                { uid:'v19', name:'🎤 حەژێکرن د ئیسلامێ دا', id:'Wzpd-zXMEJk' },
+                { uid:'v18', name:'🎤 مەترسیا فەتوا دانا بێ زانین', id:'4AH-tgZqCLo' },
+                { uid:'v17', name:'🎤 فەزلی استغفار', id:'3TJQR166CW4' },
+                { uid:'v16', name:'🎤 حەقی', id:'G1PJyir91zM' },
+                { uid:'v15', name:'🎤 چاککرنا کۆمەلگەهی', id:'m8j5PA-iQr0' },
+                { uid:'v14', name:'🎤 مەرجێ قەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' },
+                { uid:'v13', name:'🎤 گرنگیا نڤێژێ', id:'0o90PjLQLsk' },
+                { uid:'v12', name:'🎤 دەین', id:'Y6UFIr3OMyg' },
+                { uid:'v11', name:'🎤 زنا و بەلاڤبوونا زنایێ', id:'H_b7p3E58cw' },
+                { uid:'v10', name:'🎤 پیرۆزی و بەهاداری', id:'wcmlOIlQ4zI' },
+                { uid:'v9', name:'🎤 ناڤێ خودێ تعالی', id:'Xb_IFIHPAME' },
+                { uid:'v8', name:'🎤 شینوارەکێ باش', id:'Plok0okE2BI' },
+                { uid:'v7', name:'🎤 ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' },
+                { uid:'v6', name:'🎤 گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' },
+                { uid:'v5', name:'🎤 خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' },
+                { uid:'v4', name:'🎤 دانا زەکاتێ', id:'rCiSBBJKXZE' },
+                { uid:'v3', name:'🎤 تووڕەبوون', id:'rUHQfW5uN-M' },
+                { uid:'v2', name:'🎤 فیتنا دنیایێ', id:'5W1fuP0I6mQ' },
+                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' }
             ],
             'lessons': [
                 { uid:'L0', name:'شیرەتەک بۆ داخوازکەرێ زانینێ 📌', id:'pkGErf-iwjo', type:'intro' },
@@ -126,6 +184,20 @@
             ]
         };
 
+        function showAbout() {
+            lastScrollPos = window.scrollY;
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-two').style.display = 'block';
+            document.getElementById('title-display').innerText = "مەلا یەعقوب سندی کێیە؟";
+            document.getElementById('filter-btn-wrapper').style.display = 'none';
+            document.getElementById('searchInput').style.display = 'none';
+            document.getElementById('items-list').innerHTML = `
+                <div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px; white-space: normal; word-spacing: normal;">
+                    یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.
+                </div>`;
+            window.scrollTo(0,0);
+        }
+
         function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
         if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
 
@@ -134,12 +206,13 @@
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
+            document.getElementById('searchInput').style.display = 'block';
             const filterBtn = document.getElementById('filter-btn-wrapper');
             const dropdown = document.getElementById('filter-dropdown');
             filterBtn.style.display = 'flex';
             if(category === 'quran') {
                 document.getElementById('filter-btn-text').innerText = 'قورئانخوین ⋮';
-                dropdown.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدي')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
+                dropdown.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدی')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
                 renderQuran();
             } else if(category === 'lessons') {
                 document.getElementById('filter-btn-text').innerText = 'بابەت ⋮';
@@ -163,8 +236,7 @@
             nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
             if(cat==='lessons') nameDisp.innerText = "بابەت: " + filterType;
             let data = (cat==='lessons' && filterType!=='هەمی') ? dataBank[cat].filter(i => i.type===filterType || i.type==='intro') : dataBank[cat];
-            let displayData = (cat==='lessons') ? data : data.slice().reverse();
-            document.getElementById('items-list').innerHTML = displayData.map((item, idx) => {
+            document.getElementById('items-list').innerHTML = data.map((item, idx) => {
                 const displayNum = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
                 return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayNum}</div><span class="surah-name" style="font-size:18px;">${item.name}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
