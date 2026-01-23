@@ -21,28 +21,28 @@
         .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 1; }
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 2; }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 3; }
-        .new-dot { position: absolute; top: 12px; right: 12px; width: 12px; height: 12px; background-color: #ff4d4d; border-radius: 50%; border: 2px solid white; animation: pulse 1.5s infinite; display: none; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
         .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .list-header { display: flex; align-items: center; gap: 15px; width: 100%; }
         .surah-num { background: #2d5a27; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
-        .surah-name { font-family: 'Amiri', serif; font-size: 24px; font-weight: 700; color: var(--text-color); flex-grow: 1; }
+        .surah-name { font-family: 'Amiri', serif; font-size: 20px; font-weight: 700; color: var(--text-color); flex-grow: 1; }
         .video-container { width: calc(100% + 36px); margin: 10px -18px -12px -18px; display: none; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .audio-container { width: 100%; margin-top: 10px; display: none; }
         .audio-player { width: 100%; height: 45px; }
         .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid var(--border-color); border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
-        .selected-qari-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
-        body.dark-mode .selected-qari-name { background: #252525; border-color: #b8860b; }
-        .qari-dropdown { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 200px; text-align: right; border: 1px solid #d4af37; max-height: 250px; overflow-y: auto; }
-        .qari-dropdown div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; font-size: 15px; font-weight: bold; color: var(--text-color); }
-        .qari-header-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: var(--bg-color); padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); }
+        .selected-info-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
+        body.dark-mode .selected-info-name { background: #252525; border-color: #b8860b; }
+        .dropdown-menu { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 220px; text-align: right; border: 1px solid #2d5a27; max-height: 250px; overflow-y: auto; }
+        .dropdown-menu div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; font-size: 14px; font-weight: bold; color: var(--text-color); }
+        .header-filter-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: var(--bg-color); padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); font-size: 13px; }
         .gradient-line { height: 3px; background: linear-gradient(to left, #d4af37, #2d5a27, #d4af37); border: 0; margin: 10px auto 15px auto; width: 60%; }
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
         .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); padding: 12px; margin-top: 15px; text-align: right; font-family: inherit; resize: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 17px; }
         .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .footer-text { font-family: 'Amiri', serif; font-size: 26px; color: #2d5a27; margin-top: 10px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        body.dark-mode .footer-text { color: #81c784; }
     </style>
 </head>
 <body>
@@ -67,31 +67,24 @@
         </div>
         <div class="box btn-box">
             <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
-            <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی <div id="dot-lessons" class="new-dot"></div></button>
-            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">🎤 گۆتارێن ئەینیێ <div id="dot-videos" class="new-dot"></div></button>
+            <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی</button>
+            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">🎤 گۆتارێن ئەینیێ</button>
         </div>
         <div class="box">
             <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
             <form action="https://formspree.io/f/xbddrvgr" method="POST"><textarea name="pishniyar" class="form-input" placeholder="پێشنیار یان ئاریشەیا خۆ ل ڤێرێ بنڤێسه..." required></textarea><button type="submit" class="submit-btn">فرێکرنا پێشنیارێ</button></form>
+            <div class="footer-text">صَدَقَةٌ جَارِيَةٌ</div>
         </div>
     </div>
 
     <div id="page-two" class="container">
         <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
         <div class="box">
-            <div id="qari-btn-wrapper" class="qari-header-btn" onclick="toggleQariMenu(event)"><span style="color:#b8860b;font-weight:bold;">قورئانخوین ⋮</span></div>
+            <div id="filter-btn-wrapper" class="header-filter-btn" onclick="toggleMenu(event)"><span id="filter-btn-text" style="color:#2d5a27;font-weight:bold;">دیارکرن ⋮</span></div>
             <h2 id="title-display" style="font-family:'Amiri',serif; color:#2d5a27; font-size:30px;"></h2>
-            <div id="qari-dropdown" class="qari-dropdown">
-                <div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div>
-                <div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div>
-                <div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div>
-                <div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div>
-                <div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div>
-                <div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدي')">سعد الغامدي</div>
-                <div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>
-            </div>
+            <div id="filter-dropdown" class="dropdown-menu"></div>
             <input type="text" id="searchInput" class="search-field" onkeyup="filterItems()" placeholder="ل ڤێرێ بگەڕی...">
-            <center><div id="display-qari-name" class="selected-qari-name"></div></center>
+            <center><div id="display-selected-name" class="selected-info-name"></div></center>
             <div id="items-list"></div>
         </div>
     </div>
@@ -102,76 +95,80 @@
     </div>
 
     <script>
-        let currentUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
+        let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
-        if(localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
         let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
-        
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
         const dataBank = {
             'videos': [
-                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' },
-                { uid:'v2', name:'🎤 فیتنا دنیایێ', id:'5W1fuP0I6mQ' }, { uid:'v3', name:'🎤 تووڕەبوون', id:'rUHQfW5uN-M' },
-                { uid:'v4', name:'🎤 دانا زەکاتێ', id:'rCiSBBJKXZE' }, { uid:'v5', name:'🎤 خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' },
-                { uid:'v6', name:'🎤 گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' }, { uid:'v7', name:'🎤 ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' },
-                { uid:'v8', name:'🎤 شینوارەکێ باش', id:'Plok0okE2BI' }, { uid:'v9', name:'🎤 ناڤێ خودێ تعالی', id:'Xb_IFIHPAME' },
-                { uid:'v10', name:'🎤 پیرۆزی و بەهاداری', id:'wcmlOIlQ4zI' }, { uid:'v11', name:'🎤 زنا و بەلاڤبوونا زنایێ', id:'H_b7p3E58cw' },
-                { uid:'v12', name:'🎤 دەین', id:'Y6UFIr3OMyg' }, { uid:'v13', name:'🎤 گرنگیا نڤێژێ', id:'0o90PjLQLsk' },
-                { uid:'v14', name:'🎤 مەرجێ قەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' }, { uid:'v15', name:'🎤 چاککرنا کۆمەلگەهی', id:'m8j5PA-iQr0' },
-                { uid:'v16', name:'🎤 حەقی', id:'G1PJyir91zM' }, { uid:'v17', name:'🎤 فەزلی استغفار', id:'3TJQR166CW4' },
-                { uid:'v18', name:'🎤 مەترسیا فەتوا دانا بێ زانین', id:'4AH-tgZqCLo' }, { uid:'v19', name:'🎤 حەژێکرن د ئیسلامێ دا', id:'Wzpd-zXMEJk' },
-                { uid:'v20', name:'🎤 بەلاڤکرنا حەدیسێن نەدروست', id:'IvIFE54JQwc' }, { uid:'v21', name:'🎤 دیڤچوونا حەقیێ', id:'T-sANVnwtUA' },
-                { uid:'v22', name:'🎤 گرنگیا ئەمانەتی', id:'iswgGsmocEw' }, { uid:'v23', name:'🎤 گونەه و زەرەرا گونەهێ', id:'42jE--S7CBo' },
-                { uid:'v24', name:'🎤 مەترسیا ڕاگەهاندنا خراب', id:'r80U7QFUcDg' }, { uid:'v25', name:'🎤 فتنە القول بالقران', id:'FXCcvH4WlDg' },
-                { uid:'v26', name:'🎤 سحر و مەترسیا سحری', id:'CArjN7k5HM8' }, { uid:'v27', name:'🎤 پێشوازیکرنا هەیفا ڕەمەزانێ', id:'81LyyvH67kg' },
-                { uid:'v28', name:'🎤 شوکرا خودێ تعالی', id:'KR9n4X7p_8Q' }, { uid:'v29', name:'🎤 خێرا ڕۆژا ئەینیێ', id:'iTcf04lJqLk' },
-                { uid:'v30', name:'🎤 پەروەردەکرنا زارۆکان', id:'Hoh44e7PB4E' }, { uid:'v31', name:'🎤 ژیانا دنیایێ', id:'JrxColDqQcE' },
-                { uid:'v32', name:'🎤 گۆتارا ڕۆژا جەژنێ', id:'3GqYGFucrXo' }, { uid:'v33', name:'🎤 کارێن خێرا وان هندی یا حەجێ', id:'1kwGVMkjEb8' },
-                { uid:'v34', name:'🎤 ژێکڤەبوونا ئوممەتێ', id:'HAP30LS_5HU' }, { uid:'v35', name:'🎤 تشتەکی بۆ قیامەتا خۆ بکە', id:'yVKAsAMQNk0' },
-                { uid:'v36', name:'🎤 مەترسیا مادێ بێهۆشکەر', id:'jMH1q-zK7IU' }, { uid:'v37', name:'🎤 دینێ پێغەمبەران چ بوو؟', id:'u8UNjJ_e7CU' },
-                { uid:'v38', name:'🎤 گرنگیا غیرەتێ', id:'8n_o-uyAmEY' }, { uid:'v39', name:'🎤 هندەک سەربۆر', id:'AaD4xlsqqJo' },
-                { uid:'v40', name:'🎤 فیتنە', id:'dr4aeN1z3JE' }, { uid:'v41', name:'🎤 خەفلەت و بێ ئاگەهی', id:'mT3vjl64NeY' },
-                { uid:'v42', name:'🎤 دەعوەکرن بۆ تەوحیدی', id:'LMVfVhjcPiM' }, { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' },
-                { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' },
-                { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw', isNew:true }
+                { uid:'v1', name:'🎤 نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' }, { uid:'v2', name:'🎤 فیتنا دنیایێ', id:'5W1fuP0I6mQ' }, { uid:'v3', name:'🎤 تووڕەبوون', id:'rUHQfW5uN-M' }, { uid:'v4', name:'🎤 دانا زەکاتێ', id:'rCiSBBJKXZE' }, { uid:'v5', name:'🎤 خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' }, { uid:'v6', name:'🎤 گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' }, { uid:'v7', name:'🎤 ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' }, { uid:'v8', name:'🎤 شینوارەکێ باش', id:'Plok0okE2BI' }, { uid:'v9', name:'🎤 ناڤێ خودێ تعالی', id:'Xb_IFIHPAME' }, { uid:'v10', name:'🎤 پیرۆزی و بەهاداری', id:'wcmlOIlQ4zI' }, { uid:'v11', name:'🎤 زنا و بەلاڤبوونا زنایێ', id:'H_b7p3E58cw' }, { uid:'v12', name:'🎤 دەین', id:'Y6UFIr3OMyg' }, { uid:'v13', name:'🎤 گرنگیا نڤێژێ', id:'0o90PjLQLsk' }, { uid:'v14', name:'🎤 مەرجێ قەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' }, { uid:'v15', name:'🎤 چاککرنا کۆمەلگەهی', id:'m8j5PA-iQr0' }, { uid:'v16', name:'🎤 حەقی', id:'G1PJyir91zM' }, { uid:'v17', name:'🎤 فەزلی استغفار', id:'3TJQR166CW4' }, { uid:'v18', name:'🎤 مەترسیا فەتوا دانا بێ زانین', id:'4AH-tgZqCLo' }, { uid:'v19', name:'🎤 حەژێکرن د ئیسلامێ دا', id:'Wzpd-zXMEJk' }, { uid:'v20', name:'🎤 بەلاڤکرنا حەدیسێن نەدروست', id:'IvIFE54JQwc' }, { uid:'v21', name:'🎤 دیڤچوونا حەقیێ', id:'T-sANVnwtUA' }, { uid:'v22', name:'🎤 گرنگیا ئەمانەتی', id:'iswgGsmocEw' }, { uid:'v23', name:'🎤 گونەه و زەرەرا گونەهێ', id:'42jE--S7CBo' }, { uid:'v24', name:'🎤 مەترسیا ڕاگەهاندنا خراب', id:'r80U7QFUcDg' }, { uid:'v25', name:'🎤 فتنە القول بالقران', id:'FXCcvH4WlDg' }, { uid:'v26', name:'🎤 سحر و مەترسیا سحری', id:'CArjN7k5HM8' }, { uid:'v27', name:'🎤 پێشوازیکرنا هەیفا ڕەمەزانێ', id:'81LyyvH67kg' }, { uid:'v28', name:'🎤 شوکرا خودێ تعالی', id:'KR9n4X7p_8Q' }, { uid:'v29', name:'🎤 خێرا ڕۆژا ئەینیێ', id:'iTcf04lJqLk' }, { uid:'v30', name:'🎤 پەروەردەکرنا زارۆکان', id:'Hoh44e7PB4E' }, { uid:'v31', name:'🎤 ژیانا دنیایێ', id:'JrxColDqQcE' }, { uid:'v32', name:'🎤 گۆتارا ڕۆژا جەژنێ', id:'3GqYGFucrXo' }, { uid:'v33', name:'🎤 کارێن خێرا وان هندی یا حەجێ', id:'1kwGVMkjEb8' }, { uid:'v34', name:'🎤 ژێکڤەبوونا ئوممەتێ', id:'HAP30LS_5HU' }, { uid:'v35', name:'🎤 تشتەکی بۆ قیامەتا خۆ بکە', id:'yVKAsAMQNk0' }, { uid:'v36', name:'🎤 مەترسیا مادێ بێهۆشکەر', id:'jMH1q-zK7IU' }, { uid:'v37', name:'🎤 دینێ پێغەمبەران چ بوو؟', id:'u8UNjJ_e7CU' }, { uid:'v38', name:'🎤 گرنگیا غیرەتێ', id:'8n_o-uyAmEY' }, { uid:'v39', name:'🎤 هندەک سەربۆر', id:'AaD4xlsqqJo' }, { uid:'v40', name:'🎤 فیتنە', id:'dr4aeN1z3JE' }, { uid:'v41', name:'🎤 خەفلەت و بێ ئاگەهی', id:'mT3vjl64NeY' }, { uid:'v42', name:'🎤 دەعوەکرن بۆ تەوحیدی', id:'LMVfVhjcPiM' }, { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' }, { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' }, { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw', isNew:true }
             ],
             'lessons': [
-                { uid:'L0', name:'شیره ته ك بو داخازكه رى زانينى 📌', id:'pkGErf-iwjo', isNew: true },
-                { uid:'L1', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا ئيكى', id:'V5EtMthoFvI', isNew: true },
-                { uid:'L2', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا دوويى', id:'NSq7WdBPAL4', isNew: true },
-                { uid:'L3', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا سيى', id:'1I9ASYOAfQ8', isNew: true },
-                { uid:'L4', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا جارى', id:'GD-E58hruVQ', isNew: true },
-                { uid:'L5', name:'شروفه كرنا په رتوكا المنظلومة البيقونية فى علم حديث وانا بينج', id:'ObzgVlYc_ss', isNew: true },
-                { uid:'L6', name:'شروفه كرنا په رتوكا سفينة النجاة وانا ئيكى', id:'kch-a72AEls', isNew: true },
-                { uid:'L7', name:'شروفه كرنا په رتوكا سفينة النجاة وانا دوويى', id:'_-eZrXskT6U', isNew: true },
-                { uid:'L8', name:'شروفه كرنا په رتوكا سفينة النجاة وانا سيى', id:'qlTg4SLths4', isNew: true }
+                { uid:'L0', name:'شیرەتەک بۆ داخوازکەرێ زانینێ 📌', id:'pkGErf-iwjo', type:'intro' },
+                { uid:'L1', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ١', id:'V5EtMthoFvI', type:'المنظومة البيقونية' },
+                { uid:'L2', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٢', id:'NSq7WdBPAL4', type:'المنظومة البيقونية' },
+                { uid:'L3', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٣', id:'1I9ASYOAfQ8', type:'المنظومة البيقونية' },
+                { uid:'L4', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٤', id:'GD-E58hruVQ', type:'المنظومة البيقونية' },
+                { uid:'L5', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٥', id:'ObzgVlYc_ss', type:'المنظومة البيقونية' },
+                { uid:'L6', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ١', id:'kch-a72AEls', type:'سفينة النجاة' },
+                { uid:'L7', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ٢', id:'_-eZrXskT6U', type:'سفينة النجاة' },
+                { uid:'L8', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ٣', id:'qlTg4SLths4', type:'سفينة النجاة' }
             ]
         };
 
-        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); document.querySelector('.dark-mode-toggle').innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙'; }
-        function checkDots() { ['videos', 'lessons'].forEach(cat => { const hasNew = dataBank[cat].some(i => i.isNew && !localStorage.getItem('seen_'+i.uid)); if(document.getElementById('dot-'+cat)) document.getElementById('dot-'+cat).style.display = hasNew ? 'block' : 'none'; }); }
-        function showPage(title, category) { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-two').style.display = 'block'; document.getElementById('title-display').innerText = title; document.getElementById('searchInput').value = ""; const qariBtn = document.getElementById('qari-btn-wrapper'); const qariNameDisp = document.getElementById('display-qari-name'); if(category === 'quran') { qariBtn.style.display = 'flex'; qariNameDisp.style.display = 'inline-block'; qariNameDisp.innerText = "قورئانخوین: " + currentQariName; renderQuran(); } else { qariBtn.style.display = 'none'; qariNameDisp.style.display = 'none'; renderList(category); } window.scrollTo(0,0); }
-        function renderQuran() { document.getElementById('items-list').innerHTML = surahs.map((s, i) => { const n = (i+1).toString().padStart(3,'0'); return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><span class="surah-name">سورة ${s}</span></div><div id="audio-c-${i}" class="audio-container"></div></div>`; }).join(''); }
-        
-        function renderList(cat) {
-            let displayData = (cat === 'lessons') ? dataBank[cat] : dataBank[cat].slice().reverse();
-            document.getElementById('items-list').innerHTML = displayData.map((item, idx) => {
-                const isNew = item.isNew && !localStorage.getItem('seen_'+item.uid);
-                const displayIdx = (cat === 'lessons') ? idx + 1 : dataBank[cat].length - idx;
-                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayIdx}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<b id="dot-item-'+item.uid+'" style="color:red; animation: pulse 1.5s infinite; display: inline-block; margin-right: 5px;">•</b>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
+        if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
+
+        function showPage(title, category) {
+            lastScrollPos = window.scrollY;
+            document.getElementById('page-one').style.display = 'none';
+            document.getElementById('page-two').style.display = 'block';
+            document.getElementById('title-display').innerText = title;
+            const filterBtn = document.getElementById('filter-btn-wrapper');
+            const dropdown = document.getElementById('filter-dropdown');
+            filterBtn.style.display = 'flex';
+            if(category === 'quran') {
+                document.getElementById('filter-btn-text').innerText = 'قورئانخوین ⋮';
+                dropdown.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدي')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
+                renderQuran();
+            } else if(category === 'lessons') {
+                document.getElementById('filter-btn-text').innerText = 'بابەت ⋮';
+                dropdown.innerHTML = `<div onclick="renderList('lessons','هەمی')">هەمی بابەت</div><div onclick="renderList('lessons','سفينة النجاة')">سفينة النجاة</div><div onclick="renderList('lessons','المنظومة البيقونية')">المنظومة البيقونية</div>`;
+                renderList('lessons');
+            } else { filterBtn.style.display = 'none'; renderList('videos'); }
+            window.scrollTo(0,0);
+        }
+
+        function renderQuran() {
+            document.getElementById('display-selected-name').style.display = 'inline-block';
+            document.getElementById('display-selected-name').innerText = "قورئانخوین: " + currentQariName;
+            document.getElementById('items-list').innerHTML = surahs.map((s, i) => {
+                const n = (i+1).toString().padStart(3,'0');
+                return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><span class="surah-name">سورة ${s}</span></div><div id="audio-c-${i}" class="audio-container"></div></div>`;
             }).join('');
         }
 
-        function handleVideo(uid, id, idx) { localStorage.setItem('seen_'+uid, 'true'); if(document.getElementById('dot-item-'+uid)) document.getElementById('dot-item-'+uid).style.display='none'; const c = document.getElementById(`video-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`; c.style.display = 'block'; } }
-        function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
-        function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); document.querySelectorAll('audio').forEach(a => a.pause()); }
-        function goBack() { stopAll(); document.getElementById('page-two').style.display = 'none'; document.getElementById('page-counter').style.display = 'none'; document.getElementById('page-one').style.display = 'flex'; checkDots(); window.scrollTo(0, lastScrollPos); }
-        function showCounterPage() { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-counter').style.display = 'block'; }
+        function renderList(cat, filterType = 'هەمی') {
+            const nameDisp = document.getElementById('display-selected-name');
+            nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
+            if(cat==='lessons') nameDisp.innerText = "بابەت: " + filterType;
+            let data = (cat==='lessons' && filterType!=='هەمی') ? dataBank[cat].filter(i => i.type===filterType || i.type==='intro') : dataBank[cat];
+            let displayData = (cat==='lessons') ? data : data.slice().reverse();
+            document.getElementById('items-list').innerHTML = displayData.map((item, idx) => {
+                const displayNum = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayNum}</div><span class="surah-name" style="font-size:18px;">${item.name}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+            }).join('');
+        }
+
+        function handleVideo(uid, id, idx) { const c = document.getElementById(`video-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe></div>`; c.style.display = 'block'; } }
+        function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentQariUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
+        function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); }
+        function goBack() { stopAll(); document.getElementById('page-two').style.display = 'none'; document.getElementById('page-counter').style.display = 'none'; document.getElementById('page-one').style.display = 'flex'; window.scrollTo(0, lastScrollPos); }
+        function selectQari(url, name) { currentQariUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); renderQuran(); }
+        function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
         function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
-        function toggleQariMenu(e) { e.stopPropagation(); const m = document.getElementById('qari-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
-        function selectQari(url, name) { currentUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); document.getElementById('display-qari-name').innerText = "قورئانخوین: " + name; document.getElementById('qari-dropdown').style.display='none'; renderQuran(); }
-        document.addEventListener('click', () => { document.getElementById('qari-dropdown').style.display = 'none'; });
-        checkDots();
+        function showCounterPage() { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-counter').style.display = 'block'; }
+        document.addEventListener('click', () => { document.getElementById('filter-dropdown').style.display = 'none'; });
     </script>
 </body>
 </html>
