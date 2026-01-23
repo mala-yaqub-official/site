@@ -106,8 +106,16 @@
 
     <script>
         const LATEST_GOTAR_ID = "v46"; 
+        
         window.onload = function() {
             if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) document.getElementById('new-dot').style.display = 'block';
+            
+            // چارەسەریا ریفرێش: ڤەگەڕیان بۆ هەمان پەیج
+            const savedPage = sessionStorage.getItem('currentPage');
+            const savedTitle = sessionStorage.getItem('currentTitle');
+            if(savedPage === 'about') showAbout(true);
+            else if(savedPage === 'counter') showCounterPage(true);
+            else if(savedPage) showPage(savedTitle, savedPage, true);
         };
 
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
@@ -177,20 +185,25 @@
             ]
         };
 
-        function showAbout() {
-            lastScrollPos = window.scrollY;
+        function showAbout(isRefresh = false) {
+            if(!isRefresh) lastScrollPos = window.scrollY;
+            sessionStorage.setItem('currentPage', 'about');
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = "مەلا یەعقوب سندی کێیە؟";
             document.getElementById('filter-btn-wrapper').style.display = 'none';
             document.getElementById('searchInput').style.display = 'none';
+            document.getElementById('display-selected-name').style.display = 'none'; // مسح نڤیسینا سەرى
             document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
-            window.scrollTo(0,0);
+            if(!isRefresh) window.scrollTo(0,0);
         }
 
-        function showPage(title, cat) {
+        function showPage(title, cat, isRefresh = false) {
             if(cat === 'videos') { localStorage.setItem('seen_gotar_' + LATEST_GOTAR_ID, 'true'); document.getElementById('new-dot').style.display = 'none'; }
-            lastScrollPos = window.scrollY;
+            if(!isRefresh) lastScrollPos = window.scrollY;
+            sessionStorage.setItem('currentPage', cat);
+            sessionStorage.setItem('currentTitle', title);
+            
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
@@ -207,7 +220,7 @@
                 drop.innerHTML = `<div onclick="renderList('lessons','هەمی')">هەمی بابەت</div><div onclick="renderList('lessons','سفينة النجاة')">سفينة النجاة</div><div onclick="renderList('lessons','المنظومة البيقونية')">المنظومة البيقونية</div>`;
                 renderList('lessons');
             } else renderList('videos');
-            window.scrollTo(0,0);
+            if(!isRefresh) window.scrollTo(0,0);
         }
 
         function renderQuran() {
@@ -233,14 +246,31 @@
         function handleVideo(uid, id, idx) { const c = document.getElementById(`video-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe></div>`; c.style.display = 'block'; } }
         function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentQariUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
         function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); }
-        function goBack() { stopAll(); document.getElementById('page-two').style.display = 'none'; document.getElementById('page-counter').style.display = 'none'; document.getElementById('page-one').style.display = 'flex'; window.scrollTo(0, lastScrollPos); }
+        
+        function goBack() { 
+            stopAll(); 
+            sessionStorage.removeItem('currentPage');
+            sessionStorage.removeItem('currentTitle');
+            document.getElementById('page-two').style.display = 'none'; 
+            document.getElementById('page-counter').style.display = 'none'; 
+            document.getElementById('page-one').style.display = 'flex'; 
+            window.scrollTo(0, lastScrollPos); 
+        }
+
         function selectQari(url, name) { currentQariUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); renderQuran(); }
         function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
         function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
-        function showCounterPage() { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-counter').style.display = 'block'; }
+        
+        function showCounterPage(isRefresh = false) { 
+            if(!isRefresh) lastScrollPos = window.scrollY; 
+            sessionStorage.setItem('currentPage', 'counter');
+            document.getElementById('page-one').style.display = 'none'; 
+            document.getElementById('page-counter').style.display = 'block'; 
+        }
+
         function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
         if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
-        document.addEventListener('click', () => document.getElementById('filter-dropdown').style.display = 'none');
+        document.addEventListener('click', () => { if(document.getElementById('filter-dropdown')) document.getElementById('filter-dropdown').style.display = 'none'; });
     </script>
 </body>
 </html>
