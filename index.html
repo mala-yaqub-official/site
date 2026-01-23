@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>مەلا یەعقوب سندی - مالپەڕێ فەرمی</title>
     <meta name="description" content="مالپەڕێ فەرمی یێ مامۆستا مەلا یەعقوب سندی بۆ گۆتارێن ئەینیێ، وانەیێن زانستێن شەرعی و گوهداریا قورئانا پیرۆز.">
-    <meta name="keywords" content="مەلا یەعقوب سندی, مەلا یەعقوب, زاخۆ, گۆتارێن ئەینیێ, وانەیێن شەرعی, قورئان, Mela Yaqoub Sindi">
-    <meta name="author" content="مەلا یەعقوب سندی">
-    
-    <meta property="og:title" content="مەلا یەعقوب سندی - مالپەڕێ فەرمی">
-    <meta property="og:description" content="گوهداریا گۆتار و وانەیێن شەرعی یێ مامۆستا مەلا یەعقوب سندی بکە.">
-    <meta property="og:image" content="https://i.ibb.co/NnF0vY97/1739285834946.jpg">
-    <meta property="og:type" content="website">
-
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #f0f4f8; --card-bg: white; --text-color: #444; --title-color: #2d5a27; --border-color: #e1e8ed; }
@@ -22,22 +13,21 @@
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
         .profile-card { background: var(--card-bg); padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid var(--border-color); position: relative; }
         .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3); margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
-        .box { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--border-color); position: relative; overflow: hidden; color: var(--text-color); }
+        .box { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--border-color); position: relative; color: var(--text-color); }
         .section-title { color: var(--title-color); font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 5px; display: block; }
-        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: var(--text-color); font-size: 20px; text-align: justify; display: block; }
+        .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: var(--text-color); font-size: 20px; text-align: right; display: block; }
         .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: var(--title-color); display: block; margin: 10px 0 20px 0; font-weight: bold; text-align: center; }
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; }
-        
-        .btn-about { background: linear-gradient(135deg, #1a1a1a, #333); order: 1; color: #ffffff !important; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-about { background: linear-gradient(135deg, #1a1a1a, #333); order: 1; color: #ffffff !important; }
         .btn-quran { background: linear-gradient(135deg, #d4af37, #b8860b); order: 2; }
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 3; }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 4; }
-
-        .new-badge-dot { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; }
+        .new-badge-dot { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; display: none; }
         @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
-
-        .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .dropdown-menu { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 220px; border: 1px solid #2d5a27; max-height: 250px; overflow-y: auto; }
+        .dropdown-menu div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); text-align: right; font-size: 14px; font-weight: bold; }
+        .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; }
         .list-header { display: flex; align-items: center; gap: 15px; width: 100%; }
         .surah-num { background: #2d5a27; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
         .surah-name { font-family: 'Amiri', serif; font-size: 20px; font-weight: 700; color: var(--text-color); flex-grow: 1; }
@@ -46,19 +36,15 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .audio-container { width: 100%; margin-top: 10px; display: none; }
         .audio-player { width: 100%; height: 45px; }
-        .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid var(--border-color); border-radius: 15px; font-size: 16px; outline: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
-        .selected-info-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
-        body.dark-mode .selected-info-name { background: #252525; border-color: #b8860b; }
-        .dropdown-menu { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 220px; text-align: right; border: 1px solid #2d5a27; max-height: 250px; overflow-y: auto; }
-        .dropdown-menu div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; font-size: 14px; font-weight: bold; color: var(--text-color); }
-        .header-filter-btn { position: absolute; left: 15px; top: 15px; display: none; align-items: center; gap: 5px; background: var(--bg-color); padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); font-size: 13px; }
+        .search-field { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid var(--border-color); border-radius: 15px; background: var(--card-bg); color: var(--text-color); }
+        .header-filter-btn { position: absolute; left: 15px; top: 15px; display: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); background: var(--bg-color); align-items: center; gap: 5px; }
+        .selected-info-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 15px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
         .gradient-line { height: 3px; background: linear-gradient(to left, #d4af37, #2d5a27, #d4af37); border: 0; margin: 10px auto 15px auto; width: 60%; }
         #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
-        .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); padding: 12px; margin-top: 15px; text-align: right; font-family: inherit; resize: none; box-sizing: border-box; background: var(--card-bg); color: var(--text-color); }
-        .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; font-size: 17px; }
-        .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .footer-text { font-family: 'Amiri', serif; font-size: 26px; color: #2d5a27; margin-top: 10px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        body.dark-mode .footer-text { color: #81c784; }
+        .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); padding: 12px; margin-top: 15px; background: var(--card-bg); color: var(--text-color); resize: none; }
+        .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; }
+        .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; }
+        .footer-text { font-family: 'Amiri', serif; font-size: 26px; color: #2d5a27; margin-top: 10px; font-weight: bold; text-align: center; }
     </style>
 </head>
 <body>
@@ -70,13 +56,14 @@
             <h1 style="margin:0; color:#2d5a27; font-size:32px; font-family:'Amiri', serif;">مەلا یەعقوب سندی</h1>
             <span style="color:#1e4d6b; font-weight:bold;">خودێ ب پارێزیت</span>
         </div>
+        
         <div class="box">
             <span class="section-title">پێشەکی</span>
             <hr class="gradient-line">
-            <span class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
+            <span class="bismillah">بِسْمِ اللَّه الرَّحْمَنِ الرَّحِيمِ</span>
             <span class="content-text">حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی.</span>
         </div>
-        
+
         <div class="box">
             <span class="section-title">زانیاری ل سەر مالپەڕی</span>
             <hr class="gradient-line">
@@ -88,10 +75,11 @@
             <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی</button>
             <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">
-                <div class="new-badge-dot"></div>
+                <div id="new-dot" class="new-badge-dot"></div>
                 🎤 گۆتارێن ئەینیێ
             </button>
         </div>
+
         <div class="box">
             <span class="section-title" style="font-size: 20px;">پێشنیار و ئاریشە</span>
             <form action="https://formspree.io/f/xbddrvgr" method="POST"><textarea name="pishniyar" class="form-input" placeholder="پێشنیار یان ئاریشەیا خۆ ل ڤێرێ بنڤێسه..." required></textarea><button type="submit" class="submit-btn">فرێکرنا پێشنیارێ</button></form>
@@ -101,7 +89,7 @@
 
     <div id="page-two" class="container">
         <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
-        <div class="box">
+        <div class="box" style="overflow: visible;">
             <div id="filter-btn-wrapper" class="header-filter-btn" onclick="toggleMenu(event)"><span id="filter-btn-text" style="color:#2d5a27;font-weight:bold;">دیارکرن ⋮</span></div>
             <h2 id="title-display" style="font-family:'Amiri',serif; color:#2d5a27; font-size:30px;"></h2>
             <div id="filter-dropdown" class="dropdown-menu"></div>
@@ -117,14 +105,19 @@
     </div>
 
     <script>
+        const LATEST_GOTAR_ID = "v46"; 
+        window.onload = function() {
+            if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) document.getElementById('new-dot').style.display = 'block';
+        };
+
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
         let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفیل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفيل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
         
         const dataBank = {
             'videos': [
-                { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟ <span style="color:#ff3b30;">(نوو 🆕)</span>', id:'f46RlppeDUg' },
+                { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟ (نوو)', id:'f46RlppeDUg' },
                 { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw' },
                 { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' },
                 { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' },
@@ -173,14 +166,14 @@
             ],
             'lessons': [
                 { uid:'L0', name:'شیرەتەک بۆ داخوازکەرێ زانینێ 📌', id:'pkGErf-iwjo', type:'intro' },
-                { uid:'L1', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ١', id:'V5EtMthoFvI', type:'المنظومة البيقونية' },
-                { uid:'L2', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٢', id:'NSq7WdBPAL4', type:'المنظومة البيقونية' },
-                { uid:'L3', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٣', id:'1I9ASYOAfQ8', type:'المنظومة البيقونية' },
-                { uid:'L4', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٤', id:'GD-E58hruVQ', type:'المنظومة البيقونية' },
-                { uid:'L5', name:'شڕۆڤەکرنا پەرتووکا (المنظومة البيقونية في علم حديث) - وانەیا ٥', id:'ObzgVlYc_ss', type:'المنظومة البيقونية' },
-                { uid:'L6', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ١', id:'kch-a72AEls', type:'سفينة النجاة' },
-                { uid:'L7', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ٢', id:'_-eZrXskT6U', type:'سفينة النجاة' },
-                { uid:'L8', name:'شڕۆڤەکرنا پەرتووکا (سفينة النجاة) - وانەیا ٣', id:'qlTg4SLths4', type:'سفينة النجاة' }
+                { uid:'L1', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ١', id:'V5EtMthoFvI', type:'المنظومة البيقونية' },
+                { uid:'L2', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ٢', id:'NSq7WdBPAL4', type:'المنظومة البيقونية' },
+                { uid:'L3', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ٣', id:'1I9ASYOAfQ8', type:'المنظومة البيقونية' },
+                { uid:'L4', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ٤', id:'GD-E58hruVQ', type:'المنظومة البيقونية' },
+                { uid:'L5', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ٥', id:'ObzgVlYc_ss', type:'المنظومة البيقونية' },
+                { uid:'L6', name:'شڕۆڤەکرنا (سفينة النجاة) - ١', id:'kch-a72AEls', type:'سفينة النجاة' },
+                { uid:'L7', name:'شڕۆڤەکرنا (سفينة النجاة) - ٢', id:'_-eZrXskT6U', type:'سفينة النجاة' },
+                { uid:'L8', name:'شڕۆڤەکرنا (سفينة النجاة) - ٣', id:'qlTg4SLths4', type:'سفينة النجاة' }
             ]
         };
 
@@ -191,34 +184,29 @@
             document.getElementById('title-display').innerText = "مەلا یەعقوب سندی کێیە؟";
             document.getElementById('filter-btn-wrapper').style.display = 'none';
             document.getElementById('searchInput').style.display = 'none';
-            document.getElementById('items-list').innerHTML = `
-                <div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px; white-space: normal; word-spacing: normal;">
-                    یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.
-                </div>`;
+            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             window.scrollTo(0,0);
         }
 
-        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
-        if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
-
-        function showPage(title, category) {
+        function showPage(title, cat) {
+            if(cat === 'videos') { localStorage.setItem('seen_gotar_' + LATEST_GOTAR_ID, 'true'); document.getElementById('new-dot').style.display = 'none'; }
             lastScrollPos = window.scrollY;
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
             document.getElementById('searchInput').style.display = 'block';
-            const filterBtn = document.getElementById('filter-btn-wrapper');
-            const dropdown = document.getElementById('filter-dropdown');
-            filterBtn.style.display = 'flex';
-            if(category === 'quran') {
+            const fBtn = document.getElementById('filter-btn-wrapper');
+            const drop = document.getElementById('filter-dropdown');
+            fBtn.style.display = (cat === 'videos') ? 'none' : 'flex';
+            if(cat==='quran') {
                 document.getElementById('filter-btn-text').innerText = 'قورئانخوین ⋮';
-                dropdown.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدی')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
+                drop.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدي')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
                 renderQuran();
-            } else if(category === 'lessons') {
+            } else if(cat==='lessons') {
                 document.getElementById('filter-btn-text').innerText = 'بابەت ⋮';
-                dropdown.innerHTML = `<div onclick="renderList('lessons','هەمی')">هەمی بابەت</div><div onclick="renderList('lessons','سفينة النجاة')">سفينة النجاة</div><div onclick="renderList('lessons','المنظومة البيقونية')">المنظومة البيقونية</div>`;
+                drop.innerHTML = `<div onclick="renderList('lessons','هەمی')">هەمی بابەت</div><div onclick="renderList('lessons','سفينة النجاة')">سفينة النجاة</div><div onclick="renderList('lessons','المنظومة البيقونية')">المنظومة البيقونية</div>`;
                 renderList('lessons');
-            } else { filterBtn.style.display = 'none'; renderList('videos'); }
+            } else renderList('videos');
             window.scrollTo(0,0);
         }
 
@@ -231,14 +219,14 @@
             }).join('');
         }
 
-        function renderList(cat, filterType = 'هەمی') {
+        function renderList(cat, filter = 'هەمی') {
             const nameDisp = document.getElementById('display-selected-name');
             nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
-            if(cat==='lessons') nameDisp.innerText = "بابەت: " + filterType;
-            let data = (cat==='lessons' && filterType!=='هەمی') ? dataBank[cat].filter(i => i.type===filterType || i.type==='intro') : dataBank[cat];
+            if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
+            let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
-                const displayNum = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
-                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${displayNum}</div><span class="surah-name" style="font-size:18px;">${item.name}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+                const num = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><span class="surah-name" style="font-size:18px;">${item.name}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
 
@@ -250,7 +238,9 @@
         function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
         function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
         function showCounterPage() { lastScrollPos = window.scrollY; document.getElementById('page-one').style.display = 'none'; document.getElementById('page-counter').style.display = 'block'; }
-        document.addEventListener('click', () => { document.getElementById('filter-dropdown').style.display = 'none'; });
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
+        if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
+        document.addEventListener('click', () => document.getElementById('filter-dropdown').style.display = 'none');
     </script>
 </body>
 </html>
