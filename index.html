@@ -45,6 +45,8 @@
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; }
         .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; }
         .footer-text { font-family: 'Amiri', serif; font-size: 26px; color: #2d5a27; margin-top: 10px; font-weight: bold; text-align: center; }
+        /* Style for new Counter */
+        .counter-box { margin-top: 20px; padding: 15px; border: 2px solid #d4af37; border-radius: 15px; display: inline-block; background: #fff; }
     </style>
 </head>
 <body>
@@ -101,7 +103,16 @@
 
     <div id="page-counter" class="container">
         <button style="background:#444; color:white; border:none; padding:12px 25px; border-radius:12px; margin-bottom:20px; cursor:pointer;" onclick="goBack()">⬅ زڤڕین</button>
-        <div class="box">📊 ئامارا گشتی<br><img src="https://profile-counter.glitch.me/Yaqoub_Sindi_Secret_Counter/count.svg"></div>
+        <div class="box">
+            <span class="section-title">📊 ئامارا گشتی یا مالپەڕی</span>
+            <hr class="gradient-line">
+            <div class="counter-box">
+                <div id="sfcx6xeyt9z64z976atpnddhmshn45m58ub"></div>
+                <script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=x6xeyt9z64z976atpnddhmshn45m58ub&down=async" async></script>
+                <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=x6xeyt9z64z976atpnddhmshn45m58ub" border="0" title="website counter" alt="website counter"></a></noscript>
+            </div>
+            <p style="margin-top:15px; font-size:14px;">ئەڤ ژمارە هەر سەرەدانەکێ ب دروستی دژمێریت</p>
+        </div>
     </div>
 
     <script>
@@ -110,7 +121,7 @@
         window.onload = function() {
             if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) document.getElementById('new-dot').style.display = 'block';
             
-            // چارەسەریا ریفرێش: ڤەگەڕیان بۆ هەمان پەیج
+            // Check session to keep the user on the same page after refresh
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
             if(savedPage === 'about') showAbout(true);
@@ -121,7 +132,7 @@
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
         let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثار","العصر","الهمزة","الفيل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التکاثار","العصر","الهمزة","الفيل","قريش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
         
         const dataBank = {
             'videos': [
@@ -193,17 +204,15 @@
             document.getElementById('title-display').innerText = "مەلا یەعقوب سندی کێیە؟";
             document.getElementById('filter-btn-wrapper').style.display = 'none';
             document.getElementById('searchInput').style.display = 'none';
-            document.getElementById('display-selected-name').style.display = 'none'; // مسح نڤیسینا سەرى
+            document.getElementById('display-selected-name').style.display = 'none';
             document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             if(!isRefresh) window.scrollTo(0,0);
         }
 
         function showPage(title, cat, isRefresh = false) {
-            if(cat === 'videos') { localStorage.setItem('seen_gotar_' + LATEST_GOTAR_ID, 'true'); document.getElementById('new-dot').style.display = 'none'; }
             if(!isRefresh) lastScrollPos = window.scrollY;
             sessionStorage.setItem('currentPage', cat);
             sessionStorage.setItem('currentTitle', title);
-            
             document.getElementById('page-one').style.display = 'none';
             document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title;
@@ -257,10 +266,6 @@
             window.scrollTo(0, lastScrollPos); 
         }
 
-        function selectQari(url, name) { currentQariUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); renderQuran(); }
-        function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
-        function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
-        
         function showCounterPage(isRefresh = false) { 
             if(!isRefresh) lastScrollPos = window.scrollY; 
             sessionStorage.setItem('currentPage', 'counter');
@@ -268,6 +273,9 @@
             document.getElementById('page-counter').style.display = 'block'; 
         }
 
+        function selectQari(url, name) { currentQariUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); renderQuran(); }
+        function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
+        function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
         function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light'); }
         if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark-mode');
         document.addEventListener('click', () => { if(document.getElementById('filter-dropdown')) document.getElementById('filter-dropdown').style.display = 'none'; });
