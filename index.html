@@ -48,11 +48,12 @@
         .header-filter-btn { position: absolute; left: 15px; top: 15px; display: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border-color); z-index: 10; color: var(--text-color); background: var(--bg-color); align-items: center; gap: 5px; }
         .selected-info-name { color: #b8860b; font-size: 14px; font-weight: bold; margin-bottom: 15px; display: none; background: #fffcf0; padding: 5px 15px; border-radius: 10px; border: 1px dashed #d4af37; }
         .gradient-line { height: 3px; background: linear-gradient(to left, #d4af37, #2d5a27, #d4af37); border: 0; margin: 10px auto 15px auto; width: 60%; }
-        #page-two, #page-counter { display: none; width: 100%; max-width: 550px; }
+        #page-two { display: none; width: 100%; max-width: 550px; }
         .form-input { width: 100%; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); padding: 12px; margin-top: 15px; background: var(--card-bg); color: var(--text-color); resize: none; }
         .submit-btn { background: #2d5a27; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; }
         .dark-mode-toggle { position: fixed; top: 10px; left: 10px; z-index: 2000; background: #2d5a27; color: white; border: none; padding: 8px 12px; border-radius: 50%; cursor: pointer; }
         .footer-text { font-family: 'Amiri', serif; font-size: 26px; color: #2d5a27; margin-top: 10px; font-weight: bold; text-align: center; }
+        .new-label { background: #ff3b30; color: white; font-size: 12px; padding: 2px 8px; border-radius: 10px; margin-right: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -82,7 +83,7 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage('✨ مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی</button>
-            <button class="btn btn-videos" onclick="showPage('🎤 گۆتارێن ئەینیێ', 'videos')">
+            <button class="btn btn-videos" onclick="openVideos()">
                 <div id="new-dot" class="new-badge-dot"></div>
                 🎤 گۆتارێن ئەینیێ
             </button>
@@ -112,15 +113,23 @@
     </div>
 
     <script>
-        const LATEST_GOTAR_ID = "v46"; 
+        const LATEST_GOTAR_ID = "v47"; 
         
         window.onload = function() {
-            if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) document.getElementById('new-dot').style.display = 'block';
+            if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) {
+                document.getElementById('new-dot').style.display = 'block';
+            }
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
             if(savedPage === 'about') showAbout(true);
             else if(savedPage) showPage(savedTitle, savedPage, true);
         };
+
+        function openVideos() {
+            localStorage.setItem('seen_gotar_' + LATEST_GOTAR_ID, 'true');
+            document.getElementById('new-dot').style.display = 'none';
+            showPage('🎤 گۆتارێن ئەینیێ', 'videos');
+        }
 
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
@@ -129,7 +138,8 @@
         
         const dataBank = {
             'videos': [
-                { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟ (نوو)', id:'f46RlppeDUg' },
+                { uid:'v47', name:'🎤 دژایەتی کرنا اسلامێ دژایەتی کرنە دگەل بەری(کەڤری)', id:'2C6m7udw5h8' },
+                { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟', id:'f46RlppeDUg' },
                 { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw' },
                 { uid:'v44', name:'🎤 ئاگەهداری ژ زۆرداریێ', id:'1SKOJKgiMlw' },
                 { uid:'v43', name:'🎤 نڤێژ ستینا ئیسلامێ', id:'v768w9XJFCE' },
@@ -241,7 +251,8 @@
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
                 const num = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
-                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><span class="surah-name" style="font-size:18px;">${item.name}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+                const isNew = (cat === 'videos' && item.uid === LATEST_GOTAR_ID);
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<span class="new-label">نوو</span>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
 
