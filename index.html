@@ -33,6 +33,9 @@
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 4; }
         .new-badge-dot { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; display: none; }
         @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
+        
+        .red-dot-item { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 8px; }
+
         .dropdown-menu { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 220px; border: 1px solid #2d5a27; max-height: 250px; overflow-y: auto; }
         .dropdown-menu div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); text-align: right; font-size: 14px; font-weight: bold; }
         .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; }
@@ -82,7 +85,10 @@
         <div class="box btn-box">
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
-            <button class="btn btn-lessons" onclick="showPage('📚 وانەیێن زانستێن شەرعی', 'lessons')">📚 وانەیێن زانستێن شەرعی</button>
+            <button class="btn btn-lessons" onclick="openLessons()">
+                <div id="lesson-dot" class="new-badge-dot"></div>
+                📚 وانەیێن زانستێن شەرعی
+            </button>
             <button class="btn btn-videos" onclick="openVideos()">
                 <div id="new-dot" class="new-badge-dot"></div>
                 🎤 گۆتارێن ئەینیێ
@@ -114,10 +120,14 @@
 
     <script>
         const LATEST_GOTAR_ID = "v47"; 
-        
+        const LATEST_LESSON_ID = "L9";
+
         window.onload = function() {
             if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) {
                 document.getElementById('new-dot').style.display = 'block';
+            }
+            if (!localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID)) {
+                document.getElementById('lesson-dot').style.display = 'block';
             }
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
@@ -129,6 +139,12 @@
             localStorage.setItem('seen_gotar_' + LATEST_GOTAR_ID, 'true');
             document.getElementById('new-dot').style.display = 'none';
             showPage('🎤 گۆتارێن ئەینیێ', 'videos');
+        }
+
+        function openLessons() {
+            localStorage.setItem('seen_lesson_' + LATEST_LESSON_ID, 'true');
+            document.getElementById('lesson-dot').style.display = 'none';
+            showPage('📚 وانەیێن زانستێن شەرعی', 'lessons');
         }
 
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
@@ -195,7 +211,8 @@
                 { uid:'L5', name:'شڕۆڤەکرنا (المنظومة البيقونية) - ٥', id:'ObzgVlYc_ss', type:'المنظومة البيقونية' },
                 { uid:'L6', name:'شڕۆڤەکرنا (سفينة النجاة) - ١', id:'kch-a72AEls', type:'سفينة النجاة' },
                 { uid:'L7', name:'شڕۆڤەکرنا (سفينة النجاة) - ٢', id:'_-eZrXskT6U', type:'سفينة النجاة' },
-                { uid:'L8', name:'شڕۆڤەکرنا (سفينة النجاة) - ٣', id:'qlTg4SLths4', type:'سفينة النجاة' }
+                { uid:'L8', name:'شڕۆڤەکرنا (سفينة النجاة) - ٣', id:'qlTg4SLths4', type:'سفينة النجاة' },
+                { uid:'L9', name:'شڕۆڤەکرنا (سفينة النجاة) - ٤', id:'FPjnoqC8nho', type:'سفينة النجاة' }
             ]
         };
 
@@ -248,11 +265,23 @@
             const nameDisp = document.getElementById('display-selected-name');
             nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
             if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
+            
+            const seenLesson = localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID);
+            const seenGotar = localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID);
+            
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
+            
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
                 const num = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
-                const isNew = (cat === 'videos' && item.uid === LATEST_GOTAR_ID);
-                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><span class="surah-name" style="font-size:18px;">${item.name} ${isNew ? '<span class="new-label">نوو</span>' : ''}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+                
+                let badge = '';
+                if (cat === 'videos' && item.uid === LATEST_GOTAR_ID && !seenGotar) {
+                    badge = '<span class="new-label">نوو</span>';
+                } else if (cat === 'lessons' && item.uid === LATEST_LESSON_ID && !seenLesson) {
+                    badge = '<span class="red-dot-item"></span>';
+                }
+                
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><span class="surah-name" style="font-size:18px;">${item.name} ${badge}</span></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
 
