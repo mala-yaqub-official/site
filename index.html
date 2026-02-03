@@ -34,7 +34,7 @@
         .new-badge-dot { position: absolute; top: 10px; left: 10px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; display: none; }
         @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
         
-        .red-dot-item { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 8px; }
+        .red-dot-item { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 8px; animation: pulse-red 1.5s infinite; }
 
         .dropdown-menu { display: none; position: absolute; left: 15px; top: 55px; background: var(--card-bg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-radius: 12px; z-index: 1000; width: 220px; border: 1px solid #2d5a27; max-height: 250px; overflow-y: auto; }
         .dropdown-menu div { padding: 12px 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); text-align: right; font-size: 14px; font-weight: bold; }
@@ -120,7 +120,7 @@
 
     <script>
         const LATEST_GOTAR_ID = "v47"; 
-        const LATEST_LESSON_ID = "L9";
+        const LATEST_LESSON_ID = "L10";
 
         window.onload = function() {
             if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) {
@@ -212,7 +212,7 @@
                 { uid:'L6', name:'شڕۆڤەکرنا (سفينة النجاة) - ١', id:'kch-a72AEls', type:'سفينة النجاة' },
                 { uid:'L7', name:'شڕۆڤەکرنا (سفينة النجاة) - ٢', id:'_-eZrXskT6U', type:'سفينة النجاة' },
                 { uid:'L8', name:'شڕۆڤەکرنا (سفينة النجاة) - ٣', id:'qlTg4SLths4', type:'سفينة النجاة' },
-                { uid:'L9', name:'شڕۆڤەکرنا (سفينة النجاة) - ٤', id:'FPjnoqC8nho', type:'سفينة النجاة' }
+                { uid:'L10', name:'شڕۆڤەکرنا (سفينة النجاة) - ٤', id:'FPjnoqC8nho', type:'سفينة النجاة' }
             ]
         };
 
