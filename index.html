@@ -86,7 +86,6 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="lesson-dot" class="new-badge-dot"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
@@ -119,15 +118,11 @@
     </div>
 
     <script>
-        const LATEST_GOTAR_ID = "v47"; 
-        const LATEST_LESSON_ID = "L10";
+        const LATEST_GOTAR_ID = "v48"; 
 
         window.onload = function() {
             if (!localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID)) {
                 document.getElementById('new-dot').style.display = 'block';
-            }
-            if (!localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID)) {
-                document.getElementById('lesson-dot').style.display = 'block';
             }
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
@@ -142,8 +137,6 @@
         }
 
         function openLessons() {
-            localStorage.setItem('seen_lesson_' + LATEST_LESSON_ID, 'true');
-            document.getElementById('lesson-dot').style.display = 'none';
             showPage('📚 وانەیێن زانستێن شەرعی', 'lessons');
         }
 
@@ -154,6 +147,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v48', name:'🎤 ماسکێن روژئاڤا و دلوڤانیا ئیسلامێ', id:'PfFkIaTX6kg' },
                 { uid:'v47', name:'🎤 دژایەتی کرنا ئیسلامێ دژایەتی کرنە دگەل بەری(کەڤری)', id:'2C6m7udw5h8' },
                 { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟', id:'f46RlppeDUg' },
                 { uid:'v45', name:'🎤 بەرفرەهیا ئاشتیێ د ئیسلامێ دا', id:'KzWhFv1m0Gw' },
@@ -266,18 +260,22 @@
             nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
             if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
             
-            const seenLesson = localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID);
             const seenGotar = localStorage.getItem('seen_gotar_' + LATEST_GOTAR_ID);
             
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
-                const num = (cat==='lessons') ? idx+1 : dataBank[cat].length - idx;
+                const totalCount = dataBank[cat].length;
+                let num;
+                if(cat === 'videos') {
+                    const realIndex = dataBank[cat].indexOf(item);
+                    num = totalCount - realIndex;
+                } else {
+                    num = idx + 1;
+                }
                 
                 let badge = '';
                 if (cat === 'videos' && item.uid === LATEST_GOTAR_ID && !seenGotar) {
-                    badge = '<span class="new-label">نوو</span>';
-                } else if (cat === 'lessons' && item.uid === LATEST_LESSON_ID && !seenLesson) {
                     badge = '<span class="red-dot-item"></span>';
                 }
                 
