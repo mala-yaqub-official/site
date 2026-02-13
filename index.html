@@ -87,10 +87,10 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="new-lesson-dot" class="new-badge-dot"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
+                <div id="new-video-dot" class="new-badge-dot"></div>
                 🎤 گۆتارێن ئەینیێ
             </button>
         </div>
@@ -119,11 +119,11 @@
     </div>
 
     <script>
-        const LATEST_LESSON_ID = "L11"; 
+        const LATEST_VIDEO_ID = "v49"; 
 
         window.onload = function() {
-            if (!localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID)) {
-                document.getElementById('new-lesson-dot').style.display = 'block';
+            if (!localStorage.getItem('seen_video_' + LATEST_VIDEO_ID)) {
+                document.getElementById('new-video-dot').style.display = 'block';
             }
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
@@ -132,12 +132,12 @@
         };
 
         function openVideos() {
+            localStorage.setItem('seen_video_' + LATEST_VIDEO_ID, 'true');
+            document.getElementById('new-video-dot').style.display = 'none';
             showPage('🎤 گۆتارێن ئەینیێ', 'videos');
         }
 
         function openLessons() {
-            localStorage.setItem('seen_lesson_' + LATEST_LESSON_ID, 'true');
-            document.getElementById('new-lesson-dot').style.display = 'none';
             showPage('📚 وانەیێن زانستێن شەرعی', 'lessons');
         }
 
@@ -148,6 +148,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v49', name:'🎤 رەوشتێن خراب هەرفینە بو مللەتان', id:'KNT_5XGJhsM' },
                 { uid:'v48', name:'🎤 ماسکێن روژئاڤا و دلوڤانیا ئیسلامێ', id:'PfFkIaTX6kg' },
                 { uid:'v47', name:'🎤 دژایەتی کرنا ئیسلامێ دژایەتی کرنە دگەل بەری(کەڤری)', id:'2C6m7udw5h8' },
                 { uid:'v46', name:'🎤 دناڤ فتنا دا ئەم چبکەین؟', id:'f46RlppeDUg' },
@@ -221,7 +222,7 @@
             document.getElementById('filter-btn-wrapper').style.display = 'none';
             document.getElementById('searchInput').style.display = 'none';
             document.getElementById('display-selected-name').style.display = 'none';
-            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
+            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠١٢ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             if(!isRefresh) window.scrollTo(0,0);
         }
 
@@ -262,7 +263,7 @@
             nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none';
             if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
             
-            const seenLesson = localStorage.getItem('seen_lesson_' + LATEST_LESSON_ID);
+            const seenVideo = localStorage.getItem('seen_video_' + LATEST_VIDEO_ID);
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
@@ -276,7 +277,7 @@
                 }
                 
                 let badge = '';
-                if (cat === 'lessons' && item.uid === LATEST_LESSON_ID && !seenLesson) {
+                if (cat === 'videos' && item.uid === LATEST_VIDEO_ID && !seenVideo) {
                     badge = '<span class="red-dot-item"></span>';
                 }
                 
