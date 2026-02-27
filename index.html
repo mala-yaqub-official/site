@@ -112,10 +112,9 @@
     </div>
 
     <script>
-        const LATEST_VIDEO_UID = "v50"; // ناسنامەیا گۆتارا نووی یا رەمەزانێ
+        const LATEST_VIDEO_UID = "v51"; // گۆتارا نوو یا زەکاتێ
         
         window.onload = function() {
-            // ئەگەر جارانەکێ هاتبییە دیتن، نیشانا سۆر ڤەمڕینە
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
                 document.getElementById('main-video-dot').style.display = 'none';
             }
@@ -126,7 +125,6 @@
         };
 
         function openVideos() { 
-            // ڤەمڕاندنا نیشانا سۆر ب شێوەیەکێ هەمیشەیی بۆ ڤێ گۆتارێ
             localStorage.setItem('seen_latest_video', LATEST_VIDEO_UID);
             document.getElementById('main-video-dot').style.display = 'none';
             showPage('🎤 گۆتارێن ئەینیێ', 'videos'); 
@@ -141,6 +139,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v51', name:'فەرزبونا دەریخستنا زەکاتێ', id:'sv0vf2uT6Ec' },
                 { uid:'v50', name:'فەزلی و مەزناهیا هەیڤا رەمەزانێ', id:'ooURY2aEmEM' },
                 { uid:'v49', name:'رەوشتێن خراب هەرفینە بو مللەتان', id:'KNT_5XGJhsM' },
                 { uid:'v48', name:'ماسکێن روژئاڤا و دلوڤانیا ئیسلامێ', id:'PfFkIaTX6kg' },
