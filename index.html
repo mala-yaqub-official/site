@@ -26,11 +26,9 @@
         .btn-lessons { background: linear-gradient(135deg, #2d5a27, #4ca1af); order: 3; }
         .btn-videos { background: linear-gradient(135deg, #1e4d6b, #3a7bd5); order: 4; }
 
-        /* نیشانا سۆر یا ل سەر دوگمێ */
         .notif-dot-btn { position: absolute; top: 10px; left: 15px; width: 12px; height: 12px; background-color: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulse-red 1.5s infinite; }
         @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
         
-        /* نیشانا سۆر یا د ناڤ لیستێ دا */
         .red-dot-inline { width: 10px; height: 10px; background-color: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 8px; animation: pulse-red 1.5s infinite; }
 
         .list-item { background: var(--card-bg); padding: 12px 18px; margin-bottom: 12px; border-radius: 15px; text-align: right; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; }
@@ -112,7 +110,7 @@
     </div>
 
     <script>
-        const LATEST_VIDEO_UID = "v51"; // گۆتارا نوو یا زەکاتێ
+        const LATEST_VIDEO_UID = "v52"; 
         
         window.onload = function() {
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
@@ -139,6 +137,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v52', name:'رەمەزان چەند ڕۆژێن کێمن و هژمارکرینە و دەهـ شەڤێن دووماهیکا رەمەزانێ', id:'TarSh4QXquo' },
                 { uid:'v51', name:'فەرزبونا دەریخستنا زەکاتێ', id:'sv0vf2uT6Ec' },
                 { uid:'v50', name:'فەزلی و مەزناهیا هەیڤا رەمەزانێ', id:'ooURY2aEmEM' },
                 { uid:'v49', name:'رەوشتێن خراب هەرفینە بو مللەتان', id:'KNT_5XGJhsM' },
@@ -176,7 +175,7 @@
                 { uid:'v17', name:'فەزلی استغفار', id:'3TJQR166CW4' },
                 { uid:'v16', name:'حەقی', id:'G1PJyir91zM' },
                 { uid:'v15', name:'چاککرنا کۆمەلگەهی', id:'m8j5PA-iQr0' },
-                { uid:'v14', name:'مەرجێ قەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' },
+                { uid:'v14', name:'مەرجێ qەبیلبینا عیبادەتی', id:'FhcaxeKTbj8' },
                 { uid:'v13', name:'گرنگیا نڤێژێ', id:'0o90PjLQLsk' },
                 { uid:'v12', name:'دەین', id:'Y6UFIr3OMyg' },
                 { uid:'v11', name:'زنا و بەلاڤبوونا زنایێ', id:'H_b7p3E58cw' },
