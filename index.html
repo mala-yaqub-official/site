@@ -90,7 +90,7 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="main-lessons-dot" class="notif-dot-btn"></div>
+                <div id="main-lesson-dot" class="notif-dot-btn"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
@@ -122,15 +122,15 @@
     </div>
 
     <script>
-        const LATEST_VIDEO_UID = "v57"; 
-        const LATEST_LESSON_UID = "L12";
+        const LATEST_VIDEO_UID = "v58"; 
+        const LATEST_LESSON_UID = "L12"; 
         
         window.onload = function() {
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
                 document.getElementById('main-video-dot').style.display = 'none';
             }
             if (localStorage.getItem('seen_latest_lesson') === LATEST_LESSON_UID) {
-                document.getElementById('main-lessons-dot').style.display = 'none';
+                document.getElementById('main-lesson-dot').style.display = 'none';
             }
             const savedPage = sessionStorage.getItem('currentPage');
             const savedTitle = sessionStorage.getItem('currentTitle');
@@ -146,7 +146,7 @@
         
         function openLessons() { 
             localStorage.setItem('seen_latest_lesson', LATEST_LESSON_UID);
-            document.getElementById('main-lessons-dot').style.display = 'none';
+            document.getElementById('main-lesson-dot').style.display = 'none';
             showPage('📚 وانەیێن زانستێن شەرعی', 'lessons'); 
         }
         
@@ -157,6 +157,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v58', name:'وەرزی بهاری و هندەک سەرپیچییین ل سەیرانی دهین ئەنجام دان', id:'n1g1Ils6rZk' },
                 { uid:'v57', name:'ئەگەرێن نەمانا بەرەکەتێ دناڤ مللەتیدا', id:'ockOjcHjJCM' },
                 { uid:'v56', name:'خودی حالێ چ مللەتا ناگهورت هەتا ئەو خوە نە گهورن', id:'2YYWVto03Fw' },
                 { uid:'v55', name:'نیعمەتا ئەمن و ئەمانی', id:'kDkLj_u5N_E' },
@@ -235,12 +236,7 @@
             if(!isRefresh) lastScrollPos = window.scrollY; sessionStorage.setItem('currentPage', 'about');
             document.getElementById('page-one').style.display = 'none'; document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = "مەلا یەعقوب سندی کێیە؟";
-            
-            // Hidden controls for About page
-            document.getElementById('filter-btn-wrapper').style.display = 'none'; 
-            document.getElementById('searchInput').style.display = 'none';
-            document.getElementById('display-selected-name').style.display = 'none';
-
+            document.getElementById('filter-btn-wrapper').style.display = 'none'; document.getElementById('searchInput').style.display = 'none';
             document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             if(!isRefresh) window.scrollTo(0,0);
         }
@@ -249,10 +245,7 @@
             if(!isRefresh) lastScrollPos = window.scrollY; sessionStorage.setItem('currentPage', cat); sessionStorage.setItem('currentTitle', title);
             document.getElementById('page-one').style.display = 'none'; document.getElementById('page-two').style.display = 'block';
             document.getElementById('title-display').innerText = title; document.getElementById('searchInput').style.display = 'block';
-            
-            const drop = document.getElementById('filter-dropdown'); 
-            document.getElementById('filter-btn-wrapper').style.display = (cat === 'videos') ? 'none' : 'flex';
-            
+            const drop = document.getElementById('filter-dropdown'); document.getElementById('filter-btn-wrapper').style.display = (cat === 'videos') ? 'none' : 'flex';
             if(cat==='quran') {
                 document.getElementById('filter-btn-text').innerText = 'قورئانخوین ⋮';
                 drop.innerHTML = `<div onclick="selectQari('https://server12.mp3quran.net/maher/', 'ماهر المعيقلي')">ماهر المعيقلي</div><div onclick="selectQari('https://server11.mp3quran.net/yasser/', 'ياسر الدوسري')">ياسر الدوسري</div><div onclick="selectQari('https://server8.mp3quran.net/lhdan/', 'محمد اللحيدان')">محمد اللحيدان</div><div onclick="selectQari('https://server8.mp3quran.net/afs/', 'مشاري العفاسي')">مشاري العفاسي</div><div onclick="selectQari('https://server11.mp3quran.net/sds/', 'عبدالرحمن السديس')">عبدالرحمن السديس</div><div onclick="selectQari('https://server7.mp3quran.net/s_gmd/', 'سعد الغامدي')">سعد الغامدي</div><div onclick="selectQari('https://server10.mp3quran.net/ajm/', 'أحمد العجمي')">أحمد العجمي</div>`;
@@ -261,50 +254,40 @@
                 document.getElementById('filter-btn-text').innerText = 'بابەت ⋮';
                 drop.innerHTML = `<div onclick="renderList('lessons','هەمی')">هەمی بابەت</div><div onclick="renderList('lessons','سفينة النجاة')">سفينة النجاة</div><div onclick="renderList('lessons','المنظومة البيقونية')">المنظومة البيقونية</div>`;
                 renderList('lessons');
-            } else {
-                document.getElementById('display-selected-name').style.display = 'none';
-                renderList('videos');
-            }
+            } else renderList('videos');
             if(!isRefresh) window.scrollTo(0,0);
         }
 
-        function renderQuran() { 
-            document.getElementById('display-selected-name').style.display = 'inline-block'; 
-            document.getElementById('display-selected-name').innerText = "قورئانخوین: " + currentQariName; 
-            document.getElementById('items-list').innerHTML = surahs.map((s, i) => { 
-                const n = (i+1).toString().padStart(3,'0'); 
-                return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><div class="surah-name">سورة ${s}</div></div><div id="audio-c-${i}" class="audio-container"></div></div>`; 
-            }).join(''); 
-        }
+        function renderQuran() { document.getElementById('display-selected-name').style.display = 'inline-block'; document.getElementById('display-selected-name').innerText = "قورئانخوین: " + currentQariName; document.getElementById('items-list').innerHTML = surahs.map((s, i) => { const n = (i+1).toString().padStart(3,'0'); return `<div class="list-item" onclick="handleQuran(${i},'${n}')"><div class="list-header"><div class="surah-num">${i+1}</div><div class="surah-name">سورة ${s}</div></div><div id="audio-c-${i}" class="audio-container"></div></div>`; }).join(''); }
         
         function renderList(cat, filter = 'هەمی') {
-            const nameDisp = document.getElementById('display-selected-name'); 
-            if(cat==='lessons') {
-                nameDisp.style.display = 'inline-block';
-                nameDisp.innerText = "بابەت: " + filter;
-            } else {
-                nameDisp.style.display = 'none';
-            }
-            
+            const nameDisp = document.getElementById('display-selected-name'); nameDisp.style.display = (cat==='lessons') ? 'inline-block' : 'none'; if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
-                let num = (cat === 'videos') ? (dataBank['videos'].length - dataBank['videos'].indexOf(item)) : (dataBank['lessons'].length - dataBank['lessons'].indexOf(item));
-                let badge = "";
-                if (cat === 'videos' && item.uid === LATEST_VIDEO_UID && localStorage.getItem('seen_latest_video') !== LATEST_VIDEO_UID) badge = '<span class="red-dot-inline"></span>';
-                if (cat === 'lessons' && item.uid === LATEST_LESSON_UID && localStorage.getItem('seen_latest_lesson') !== LATEST_LESSON_UID) badge = '<span class="red-dot-inline"></span>';
+                let num = (cat === 'videos') ? (dataBank[cat].length - dataBank[cat].indexOf(item)) : (idx + 1);
                 
+                // پشکنین بۆ نیشانا سۆر
+                let badge = '';
+                if (cat === 'videos' && item.uid === LATEST_VIDEO_UID && localStorage.getItem('seen_latest_video') !== LATEST_VIDEO_UID) {
+                    badge = '<span class="red-dot-inline"></span>';
+                } else if (cat === 'lessons' && item.uid === LATEST_LESSON_UID && localStorage.getItem('seen_latest_lesson') !== LATEST_LESSON_UID) {
+                    badge = '<span class="red-dot-inline"></span>';
+                }
+
                 let displayName = (cat === 'lessons' && item.lnum) ? `${item.name} وانەیا ${item.lnum}` : (cat==='videos' ? `🎤 ${item.name}` : item.name);
-                return `<div class="list-item" onclick="handleItem('${cat}', '${item.uid}','${item.id}',${idx})"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><div class="surah-name">${displayName} ${badge} <span class="teacher-name">مەلا یەعقوب سندی خودێ بپارێزیت</span></div></div><div id="video-c-${idx}" class="video-container"></div></div>`;
+                return `<div class="list-item" onclick="handleVideo('${item.uid}','${item.id}',${idx}, '${cat}')"><div class="list-header"><div class="surah-num" style="background:#1e4d6b;">${num}</div><div class="surah-name">${displayName} ${badge} <span class="teacher-name">مەلا یەعقوب سندی خودێ بپارێزیت</span></div></div><div id="video-c-${idx}" class="video-container"></div></div>`;
             }).join('');
         }
 
-        function handleItem(cat, uid, id, idx) {
-            if (cat === 'videos' && uid === LATEST_VIDEO_UID) localStorage.setItem('seen_latest_video', LATEST_VIDEO_UID);
-            if (cat === 'lessons' && uid === LATEST_LESSON_UID) localStorage.setItem('seen_latest_lesson', LATEST_LESSON_UID);
-            
-            const c = document.getElementById(`video-c-${idx}`);
-            if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } 
-            else { stopAll(); c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe></div>`; c.style.display = 'block'; }
+        function handleVideo(uid, id, idx, cat) { 
+            const c = document.getElementById(`video-c-${idx}`); 
+            if (c.style.display === 'block') { 
+                c.style.display = 'none'; c.innerHTML = ''; 
+            } else { 
+                stopAll(); 
+                c.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe></div>`; 
+                c.style.display = 'block'; 
+            } 
         }
 
         function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentQariUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
