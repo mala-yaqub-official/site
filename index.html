@@ -90,11 +90,11 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="main-lesson-dot" class="notif-dot-btn" style="display: none;"></div>
+                <div id="main-lesson-dot" class="notif-dot-btn"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
-                <div id="main-video-dot" class="notif-dot-btn"></div>
+                <div id="main-video-dot" class="notif-dot-btn" style="display: none;"></div>
                 🎤 گۆتارێن ئەینیێ
             </button>
         </div>
@@ -123,7 +123,7 @@
 
     <script>
         const LATEST_VIDEO_UID = "v60"; 
-        const LATEST_LESSON_UID = "L13"; 
+        const LATEST_LESSON_UID = "L14"; 
         
         window.onload = function() {
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
@@ -157,7 +157,7 @@
         
         const dataBank = {
             'videos': [
-                { uid:'v60', name:'مژیلبونا سەلەفان ب قورئانێ ڤە و گرێدانا مە ب موبایلێ ڤە', id:'AitTqQbU0Co' },
+                { uid:'v60', name:'مژیلبونا سەلەفان ب قورئانێ ڤە و گۆریدانا مە ب موبایلێ ڤە', id:'AitTqQbU0Co' },
                 { uid:'v59', name:'پێدڤیاتیا کۆمەڵگەهی ب ئایینی', id:'gWKhFUQPfAQ' },
                 { uid:'v58', name:'وەرزی بهاری و هندەک سەرپیچییین ل سەیرانی دهین ئەنجام دان', id:'n1g1Ils6rZk' },
                 { uid:'v57', name:'ئەگەرێن نەمانا بەرەکەتێ دناڤ مللەتیدا', id:'ockOjcHjJCM' },
@@ -220,6 +220,7 @@
             ],
             'lessons': [
                 { uid:'L0', name:'شیرەتەک بۆ داخوازکەرێ زانینێ 📌', id:'pkGErf-iwjo', type:'intro', lnum:'' },
+                { uid:'L14', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'pa2JIJ_xMLU', type:'سفينة النجاة', lnum:'هەشتێ' },
                 { uid:'L13', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'_HWfEEMeGmw', type:'سفينة النجاة', lnum:'حەفتێ' },
                 { uid:'L12', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'R7n15RLAqFY', type:'سفينة النجاة', lnum:'شەشێ' },
                 { uid:'L11', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'2iClxsndnqw', type:'سفينة النجاة', lnum:'پێنجێ' },
