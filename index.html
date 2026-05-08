@@ -90,11 +90,11 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە؟</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="main-lesson-dot" class="notif-dot-btn"></div>
+                <div id="main-lesson-dot" class="notif-dot-btn" style="display: none;"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
-                <div id="main-video-dot" class="notif-dot-btn" style="display: none;"></div>
+                <div id="main-video-dot" class="notif-dot-btn"></div>
                 🎤 گۆتارێن ئەینیێ
             </button>
         </div>
@@ -122,7 +122,7 @@
     </div>
 
     <script>
-        const LATEST_VIDEO_UID = "v60"; 
+        const LATEST_VIDEO_UID = "v61"; 
         const LATEST_LESSON_UID = "L14"; 
         
         window.onload = function() {
@@ -157,6 +157,7 @@
         
         const dataBank = {
             'videos': [
+                { uid:'v61', name:'تێکەڵبونا ژنان دگەل زەلامان ئەگەرێ هەمی بەلا و خرابیانە', id:'hx-jW-_egdI' },
                 { uid:'v60', name:'مژیلبونا سەلەفان ب قورئانێ ڤە و گۆریدانا مە ب موبایلێ ڤە', id:'AitTqQbU0Co' },
                 { uid:'v59', name:'پێدڤیاتیا کۆمەڵگەهی ب ئایینی', id:'gWKhFUQPfAQ' },
                 { uid:'v58', name:'وەرزی بهاری و هندەک سەرپیچییین ل سەیرانی دهین ئەنجام دان', id:'n1g1Ils6rZk' },
