@@ -18,8 +18,8 @@
     <link rel="icon" type="image/jpg" href="https://i.ibb.co/NnF0vY97/1739285834946.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #f0f4f8; --card-bg: white; --text-color: #444; --title-color: #2d5a27; --border-color: #e1e8ed; }
-        body.dark-mode { --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #e0e0e0; --title-color: #81c784; --border-color: #333; }
+        :root { --bg-color: #f0f4f8; --card-bg: white; --text-color: #444; --title-color: #2d5a27; --border-color: #e1e8ed; --eid-text: #b8860b; }
+        body.dark-mode { --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #e0e0e0; --title-color: #81c784; --border-color: #333; --eid-text: #ffd700; }
         body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; padding: 40px 20px; background-color: var(--bg-color); display: flex; flex-direction: column; align-items: center; min-height: 100vh; transition: 0.3s; }
         .container { width: 100%; max-width: 550px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
         .profile-card { background: var(--card-bg); padding: 30px 25px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid var(--border-color); position: relative; }
@@ -27,7 +27,15 @@
         .box { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--border-color); position: relative; color: var(--text-color); }
         .section-title { color: var(--title-color); font-family: 'Amiri', serif; font-size: 24px; font-weight: bold; margin-bottom: 5px; display: block; }
         .content-text { font-family: 'Amiri', serif; line-height: 1.7; color: var(--text-color); font-size: 20px; text-align: right; display: block; }
-        .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: var(--title-color); display: block; margin: 10px 0 20px 0; font-weight: bold; text-align: center; }
+        .bismillah { font-family: 'Amiri', serif; font-size: 28px; color: var(--title-color); display: block; margin: 15px 0 20px 0; font-weight: bold; text-align: center; }
+        
+        /* کادرەکێ پاقژ و بێ ئیمۆجی */
+        .greeting-box { background: var(--card-bg); border-top: 3px double #d4af37; border-bottom: 3px double #d4af37; padding: 15px 10px; margin-bottom: 25px; text-align: center; animation: fadeIn 1s ease-in-out; }
+        .welcome-title { font-size: 16px; color: var(--title-color); font-weight: bold; margin-bottom: 6px; display: block; letter-spacing: 0.5px; }
+        .eid-title { font-family: 'Amiri', serif; font-size: 22px; color: var(--eid-text); font-weight: bold; margin-bottom: 6px; display: block; }
+        .eid-dua { font-family: 'Amiri', serif; font-size: 19px; color: var(--text-color); font-weight: bold; direction: ltr; display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
         .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 18px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; text-decoration: none; }
         .btn-about { background: linear-gradient(135deg, #1a1a1a, #333); order: 1; color: #ffffff !important; }
@@ -76,6 +84,13 @@
         <div class="box">
             <span class="section-title">پێشەکی</span>
             <hr class="gradient-line">
+            
+            <div class="greeting-box">
+                <span class="welcome-title">بخێرهاتی بۆ مالپەڕێ فەرمی یێ مەلا یەعقوب سندی</span>
+                <span class="eid-title">جەژنا تە پیرۆز بیت</span>
+                <span class="eid-dua">تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ</span>
+            </div>
+
             <span class="bismillah">بِسْمِ اللَّه الرَّحْمَنِ الرَّحِيمِ</span>
             <span class="content-text">حەمد و سوپاسی بۆ خودایێ مەزن، ئەوێ ئەڤ نعمەتە دگەل من کری و ئەڤ عیلم و زانینە نیشا من دای کو بشێم ب ڕێکا دروستکرنا ڤی وێب سایتی خزمەتەکا بچووک پێشکێشی ئایینێ خۆ یێ پیرۆز بکەم. هیڤیا من ئەوە ئەڤ کارە ببیتە دەرگەهەک بۆ بەلاڤکرنا زانستێن شەرعی و مفاگەهاندن ب قوتابیێن زانستێن شەرعی.</span>
         </div>
@@ -153,11 +168,11 @@
         let currentQariUrl = localStorage.getItem('qariUrl') || "https://server12.mp3quran.net/maher/";
         let currentQariName = localStorage.getItem('qariName') || "ماهر المعيقلي";
         let lastScrollPos = 0;
-        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القیامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التکویر","الانفطار","المطففین","الانشقاق","البروج","الطارق","الأعلى","الغاشیة","الفجر","البلد","الشمس","اللیل","الضحى","الشرح","التین","العلق","القدر","البینة","الزلزلة","العادیات","القارعة","التكاثار","العصر","الهمزة","الفیل","قریش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+        const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","یونس","هود","یوسف","الرعد","إبراهیم","الحجر","النحل","الإسراء","الكهف","مریم","طه","الأنبیاء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","یس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملک","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القیامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التکویر","الانفطار","المطففین","الانشقاق","البروج","الطارق","الأعلى","الغاشیة","الفجر","البلد","Clarify","اللیل","الضحى","الشرح","التین","العلق","القدر","البینة","الزلزلة","العادیات","القارعة","التكاثار","العصر","الهمزة","الفیل","قریش","الماعون","الکوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
         
         const dataBank = {
             'videos': [
-                { uid:'v63', name:'مەزناهى و فەزلى رۆژا عەرەفى', id:'xRYJ8zzc0F0' },
+                { uid:'v63', name:'مەزناهى و فەزڵى ڕۆژا عەرهەفى', id:'xRYJ8zzc0F0' },
                 { uid:'v62', name:'فەزڵی دەهـ ڕۆژێن دەسپێکا هەیفا ذی الحجة', id:'KCb6ghrznl4' },
                 { uid:'v61', name:'تێکەڵبونا ژنان دگەل زەلامان ئەگەرێ هەمی بەلا و خرابیانە', id:'hx-jW-_egdI' },
                 { uid:'v60', name:'مژیلبونا سەلەفان ب قورئانێ ڤە و گۆریدانا مە ب موبایلێ ڤە', id:'AitTqQbU0Co' },
@@ -196,7 +211,7 @@
                 { uid:'v27', name:'پێشوازیکرنا هەیفا ڕەمەزانێ', id:'81LyyvH67kg' },
                 { uid:'v26', name:'سحر و مەترسیا سحری', id:'CArjN7k5HM8' },
                 { uid:'v25', name:'فتنة القول بالقران', id:'FXCcvH4WlDg' },
-                { uid:'v24', name:'مەترسیا ڕاگەهاندنا خراب', id:'r80U7QFUcDg' },
+                { uid:'v24', name:'مەترسیا ڕاگههاندنا خراب', id:'r80U7QFUcDg' },
                 { uid:'v23', name:'گونەه و زەرەرا گونەهێ', id:'42jE--S7CBo' },
                 { uid:'v22', name:'گرنگیا ئەمانەتی', id:'iswgGsmocEw' },
                 { uid:'v21', name:'دیڤچوونا حەقیێ', id:'T-sANVnwtUA' },
@@ -213,12 +228,6 @@
                 { uid:'v10', name:'پیرۆزی و بەهاداری', id:'wcmlOIlQ4zI' },
                 { uid:'v9', name:'ناڤێ خودێ تعالی', id:'Xb_IFIHPAME' },
                 { uid:'v8', name:'شینوارەکێ باش', id:'Plok0okE2BI' },
-                { uid:'v7', name:'ڕێکێن کەفتنا د زنایێ دا', id:'Vu-fVSAw5aA' },
-                { uid:'v6', name:'گرنگیا هەیفا ڕەمەزانێ', id:'7t_K2ogSwLQ' },
-                { uid:'v5', name:'خێرا ڕۆژی گرتنێ', id:'J-F8I9EigX0' },
-                { uid:'v4', name:'دانا زەکاتێ', id:'rCiSBBJKXZE' },
-                { uid:'v3', name:'تووڕەبوون', id:'rUHQfW5uN-M' },
-                { uid:'v2', name:'فیتنا دنیایێ', id:'5W1fuP0I6mQ' },
                 { uid:'v1', name:'نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' }
             ],
             'lessons': [
@@ -246,7 +255,7 @@
             document.getElementById('filter-btn-wrapper').style.display = 'none'; 
             document.getElementById('searchInput').style.display = 'none';
             document.getElementById('display-selected-name').style.display = 'none'; 
-            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی، تەوحید و سوننەت، بەختەوەریا دەروونی، فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
+            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی, تەوحید و سوننەت, بەختەوەریا دەروونی, فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             if(!isRefresh) window.scrollTo(0,0);
         }
 
