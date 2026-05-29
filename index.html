@@ -136,7 +136,7 @@
     </div>
 
     <script>
-        const LATEST_VIDEO_UID = "v64"; 
+        const LATEST_VIDEO_UID = "v65"; 
         const LATEST_LESSON_UID = "L14"; 
         
         window.onload = function() {
@@ -171,7 +171,8 @@
         
         const dataBank = {
             'videos': [
-                { uid:'v64', name:'گۆتارا ڕۆژا جەژنێ', id:'0leRkGjrnyM' },
+                { uid:'v65', name:'مه ترسيا ئاشكراكرنا كيماسين خه لكى', id:'NtJBfnnXc24' },
+                { uid:'v64', name:' گوتارا جەژنا قوربانێ', id:'0leRkGjrnyM' },
                 { uid:'v63', name:'مەزناهى و فەزڵى ڕۆژا عەرهەفى', id:'xRYJ8zzc0F0' },
                 { uid:'v62', name:'فەزڵی دەهـ ڕۆژێن دەسپێکا هەیفا ذی الحجة', id:'KCb6ghrznl4' },
                 { uid:'v61', name:'تێکەڵبونا ژنان دگەل زەلامان ئەگەرێ هەمی بەلا و خرابیانە', id:'hx-jW-_egdI' },
@@ -294,7 +295,7 @@
             if(cat==='lessons') nameDisp.innerText = "بابەت: " + filter;
             let data = (cat==='lessons' && filter!=='هەمی') ? dataBank[cat].filter(i => i.type===filter || i.type==='intro') : dataBank[cat];
             document.getElementById('items-list').innerHTML = data.map((item, idx) => {
-                let num = (cat === 'videos') ? (dataBank[cat].length - dataBank[cat].indexOf(item)) : (idx + 1);
+                let num = (cat === 'videos') ? item.uid.replace('v', '') : (idx + 1);
                 
                 let badge = '';
                 if (cat === 'videos' && item.uid === LATEST_VIDEO_UID && localStorage.getItem('seen_latest_video') !== LATEST_VIDEO_UID) {
