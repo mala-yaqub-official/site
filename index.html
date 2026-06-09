@@ -31,8 +31,6 @@
         
         .greeting-box { background: var(--card-bg); border-top: 3px double #d4af37; border-bottom: 3px double #d4af37; padding: 15px 10px; margin-bottom: 25px; text-align: center; animation: fadeIn 1s ease-in-out; }
         .welcome-title { font-size: 16px; color: var(--title-color); font-weight: bold; margin-bottom: 6px; display: block; letter-spacing: 0.5px; }
-        .eid-title { font-family: 'Amiri', serif; font-size: 22px; color: var(--eid-text); font-weight: bold; margin-bottom: 6px; display: block; }
-        .eid-dua { font-family: 'Amiri', serif; font-size: 19px; color: var(--text-color); font-weight: bold; direction: ltr; display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         .btn-box { display: flex; flex-direction: column; gap: 15px; }
@@ -86,8 +84,6 @@
             
             <div class="greeting-box">
                 <span class="welcome-title">بخێرهاتی بۆ مالپەڕێ فەرمی یێ مەلا یەعقوب سندی</span>
-                <span class="eid-title"</span>
-                <span class="eid-dua"></span>
             </div>
 
             <span class="bismillah">بِسْمِ اللَّه الرَّحْمَنِ الرَّحِيمِ</span>
@@ -104,7 +100,7 @@
             <button class="btn btn-about" onclick="showAbout()">👤 مەلا یەعقوب سندی کێیە?</button>
             <button class="btn btn-quran" onclick="showPage(' مەجلیسێ قورئانا پیرۆز', 'quran')">📖 قورئانا پیرۆز</button>
             <button class="btn btn-lessons" onclick="openLessons()">
-                <div id="main-lesson-dot" class="notif-dot-btn" style="display: none;"></div>
+                <div id="main-lesson-dot" class="notif-dot-btn"></div>
                 📚 وانەیێن زانستێن شەرعی
             </button>
             <button class="btn btn-videos" onclick="openVideos()">
@@ -137,7 +133,7 @@
 
     <script>
         const LATEST_VIDEO_UID = "v66"; 
-        const LATEST_LESSON_UID = "L14"; 
+        const LATEST_LESSON_UID = "L15"; 
         
         window.onload = function() {
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
@@ -239,6 +235,7 @@
                 { uid:'v1', name:'نیعمەتا ڕەمەزانێ و گرنگیا دەمی', id:'G859P5XVKSU' }
             ],
             'lessons': [
+                { uid:'L15', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'vevdRNfGEzM', type:'سفينة النجاة', lnum:'نەهێ' },
                 { uid:'L0', name:'شیرەتەک بۆ داخوازکەرێ زانینێ 📌', id:'pkGErf-iwjo', type:'intro', lnum:'' },
                 { uid:'L14', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'pa2JIJ_xMLU', type:'سفينة النجاة', lnum:'هەشتێ' },
                 { uid:'L13', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'_HWfEEMeGmw', type:'سفينة النجاة', lnum:'حەفتێ' },
@@ -263,7 +260,7 @@
             document.getElementById('filter-btn-wrapper').style.display = 'none'; 
             document.getElementById('searchInput').style.display = 'none';
             document.getElementById('display-selected-name').style.display = 'none'; 
-            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ، ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی, تەوحید و سوننەت, بەختەوەریا دەروونی, فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
+            document.getElementById('items-list').innerHTML = `<div class="box" style="text-align:right; line-height:1.6; font-family:'Amiri', serif; font-size:22px;">یەعقوب موحەممەد مجید ناسیار ب مەلا یەعقوب سندی ژ دایک بوویێ ساڵا (١٩٨٧) خەلکێ باژێرێ زاخوکا دەلالە ل سالا (٢٠١٢) د تەمەنێ (٢٥) سالیێ دەست ب گۆتار خواندنێ دکەت ڕۆلەکێ مەزن دبینت د بەڵاڤکرنا قورئان و سوننەتێ دا و دژایەتییەکا دژواردکەت بۆ شرکێ و بیدعی، مەلا یەعقوب دبیتە ستریەک د گەورییا مرۆڤێن سەرداچووی دا ژبەر هندێ چەندین ئاستەنگ و دەردەسەری ب سەری دهێن و ل سالا(٢٠١٩) ژ گۆتار خواندنێ دهێتە دویر ئێخستن بەلێ پشتی چەندین پێکول و داخوازییان دووبارە ل ساڵا (٢٠٢٤) د زڤریتە گۆتار خواندنێ ڤە و دەست ب هوشیارکرنا خەلکی دکەت ژ تارییاتیێن سەرداچوونێ, ل مزگەفتا کارێز گۆتاران د خوینیت بەلێ ژبەر ئامادوبوونا رێژەکا زورا نڤێژکەران مەلا یەعقوب دهێتە ڤەگۆهاستن بۆ مزگەفتا فەتاح گۆیی سەرەڕایی ڤێ ڤەگۆهاستنێ رێژەکا زورا نڤێژکەران ئامادە دبن و دبیتە ئەگەر کو جهێ هەمییان نەکەت، مەلا یەعقوب سندی ل ساڵا ٢٠١١ پەیمانگەها تەکنیکیا زاخو خلاس کریە و ل ساڵا ٢٠١٢ پەیمانگەها زانستێن ئیسلامی خلاس دکت و ل ساڵا ٢٠٢٣ کۆلیژا دەروونناسی خلاس دکەت، گۆتارێن مەلا یەعقوب سندی فرە بابەتان ب خۆ ڤە دگریت وەکوو بابەتێن:(ڕەوشتێن جڤاکی, تەوحید و سوننەت, بەختەوەریا دەروونی, فقها ئیسلامی و گەلەک بابەتێن گرنگێن ئیسلامی.</div>`;
             if(!isRefresh) window.scrollTo(0,0);
         }
 
