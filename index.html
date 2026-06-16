@@ -322,7 +322,15 @@
 
         function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentQariUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
         function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); }
-        function goBack() { stopAll(); sessionStorage.removeItem('currentPage'); document.getElementById('page-two').style.display = 'none'; document.getElementById('page-one').style.flex = 'flex'; window.scrollTo(0, lastScrollPos); }
+        
+        function goBack() { 
+            stopAll(); 
+            sessionStorage.removeItem('currentPage'); 
+            document.getElementById('page-two').style.display = 'none'; 
+            document.getElementById('page-one').style.display = 'block'; 
+            window.scrollTo(0, lastScrollPos); 
+        }
+        
         function selectQari(url, name) { currentQariUrl = url; currentQariName = name; localStorage.setItem('qariUrl', url); localStorage.setItem('qariName', name); renderQuran(); }
         function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('filter-dropdown'); m.style.display = (m.style.display==='block')?'none':'block'; }
         function filterItems() { let input = document.getElementById('searchInput').value.toLowerCase(); let items = document.getElementsByClassName('list-item'); for (let i = 0; i < items.length; i++) items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none"; }
