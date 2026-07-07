@@ -112,7 +112,7 @@
         </div>
 
         <div class="box">
-            <span class="section-title">زانیاری ل سەر مالپەڕی</span>
+            <span class="section-title">زانیاری ل سەر مالپەڕێ</span>
             <hr class="gradient-line">
             <div class="content-text">ئەڤ مالپەڕە یێ تایبەتە ب بەڵاڤکرنا گۆتارێن ئەینیێ و وانەیێن زانستێن شەرعی یێن مامۆستا مەلا یەعقوب سندی, مەلا یەعقوب سندی گۆتارێن ئەینیێ ل مزگەفتا حەجی فەتاح گۆیی دبێژیت</div>
         </div>
@@ -156,7 +156,7 @@
 
     <script>
         const LATEST_VIDEO_UID = "v69"; 
-        const LATEST_LESSON_UID = "L16"; 
+        const LATEST_LESSON_UID = "L17"; 
         
         window.onload = function() {
             if (localStorage.getItem('seen_latest_video') === LATEST_VIDEO_UID) {
@@ -275,6 +275,7 @@
                 { uid:'L14', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'pa2JIJ_xMLU', type:'سفينة النجاة', lnum:'هەشتێ' },
                 { uid:'L15', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'vevdRNfGEzM', type:'سفينة النجاة', lnum:'نەهێ' },
                 { uid:'L16', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'OzrhXzKIea8', type:'سفينة النجاة', lnum:'دەهێ' },
+                { uid:'L17', name:'شڕۆڤەکرنا (سفينة النجاة)', id:'u2q6uu_NBWw', type:'سفينة النجاة', lnum:'یازدێ' },
                 { uid:'L1', name:'شڕۆڤەکرنا (المنظومة البيقونية)', id:'V5EtMthoFvI', type:'المنظومة البيقونية', lnum:'ئێکێ' },
                 { uid:'L2', name:'شڕۆڤەکرنا (المنظومة البيقونية)', id:'NSq7WdBPAL4', type:'المنظومة البيقونية', lnum:'دووێ' },
                 { uid:'L3', name:'شڕۆڤەکرنا (المنظومة البيقونية)', id:'1I9ASYOAfQ8', type:'المنظومة البيقونية', lnum:'سێیێ' },
@@ -416,7 +417,18 @@
             } 
         }
 
-        function handleQuran(idx, n) { const c = document.getElementById(`audio-c-${idx}`); if (c.style.display === 'block') { c.style.display = 'none'; c.innerHTML = ''; } else { stopAll(); c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${currentQariUrl}${n}.mp3"></audio>`; c.style.display = 'block'; } }
+        function handleQuran(idx, n) { 
+            const c = document.getElementById(`audio-c-${idx}`); 
+            if (c.style.display === 'block') { 
+                c.style.display = 'none'; 
+                c.innerHTML = ''; 
+            } else { 
+                stopAll(); 
+                let secureUrl = currentQariUrl.replace('http:', 'https:');
+                c.innerHTML = `<audio controls autoplay class="audio-player"><source src="${secureUrl}${n}.mp3"></audio>`; 
+                c.style.display = 'block'; 
+            } 
+        }
         function stopAll() { document.querySelectorAll('.video-container, .audio-container').forEach(c => { c.style.display = 'none'; c.innerHTML = ''; }); }
         
         function goBack() { 
